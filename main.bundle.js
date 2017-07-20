@@ -1,319 +1,17 @@
-webpackJsonp([1],{
+webpackJsonp([1,5],{
 
-/***/ "../../../../../@angular-generic-table/column-settings/column-settings.module.ts":
+/***/ 132:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__ = __webpack_require__("../../../../../@angular-generic-table/column-settings/components/gt-column-settings.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__ = __webpack_require__("../../../../../@angular-generic-table/core/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_dragula__ = __webpack_require__("../../../../ng2-dragula/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_dragula__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ColumnSettingsModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-var ColumnSettingsModule = (function () {
-    function ColumnSettingsModule() {
-    }
-    return ColumnSettingsModule;
-}());
-ColumnSettingsModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
-            __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__["a" /* GenericTableModule */],
-            __WEBPACK_IMPORTED_MODULE_4_ng2_dragula__["DragulaModule"]
-        ],
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["a" /* GtColumnSettingsComponent */],
-            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["b" /* GtColumnPipe */]
-        ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["a" /* GtColumnSettingsComponent */],
-            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["b" /* GtColumnPipe */]
-        ]
-    })
-], ColumnSettingsModule);
-
-//# sourceMappingURL=column-settings.module.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/column-settings/components/gt-column-settings.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__ = __webpack_require__("../../../../../@angular-generic-table/core/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__ = __webpack_require__("../../../../ng2-dragula/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_dragula__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__ = __webpack_require__("../../../../../@angular-generic-table/column-settings/interfaces/gt-column-settings-texts.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return GtColumnPipe; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtColumnSettingsComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var GtColumnPipe = (function () {
-    function GtColumnPipe() {
-    }
-    // TODO: move to helper functions
-    /** Sort by column order */
-    GtColumnPipe.prototype.getColumnOrder = function (a, b) {
-        if (a.columnOrder < b.columnOrder)
-            return -1;
-        if (a.columnOrder > b.columnOrder || typeof a.columnOrder === 'undefined')
-            return 1;
-        return 0;
-    };
-    ;
-    /** return enabled columns */
-    GtColumnPipe.prototype.getEnabled = function (column) {
-        return column.enabled !== false ? column : null;
-    };
-    GtColumnPipe.prototype.transform = function (settings) {
-        return settings.filter(this.getEnabled).sort(this.getColumnOrder);
-    };
-    return GtColumnPipe;
-}());
-GtColumnPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtColumn'
-    })
-], GtColumnPipe);
-
-var GtColumnSettingsComponent = (function () {
-    function GtColumnSettingsComponent(dragulaService, changeDetectorRef) {
-        var _this = this;
-        this.dragulaService = dragulaService;
-        this.changeDetectorRef = changeDetectorRef;
-        this.gtHeaderClasses = 'px-3 pt-3 pb-2 table-bordered border-left-0 border-right-0 border-bottom-0 alert-info';
-        this.gtWrapperClasses = 'px-3 pb-3 table-bordered border-left-0 border-right-0 border-top-0 alert-info';
-        this.overlay = true;
-        this.gtDefaultTexts = {
-            title: 'Columns',
-            help: 'Double click to toggle visibility, drag and drop to reorder.'
-        };
-        this.gtTexts = this.gtDefaultTexts;
-        this.active = false;
-        this.reordered = false;
-        /**
-         *  Extend object function.
-         */
-        this.extend = function (a, b) {
-            for (var key in b)
-                if (b.hasOwnProperty(key))
-                    a[key] = b[key];
-            return a;
-        };
-        dragulaService.drop.subscribe(function (value) {
-            if (value[0] === _this.bagId) {
-                _this._onDrop(value.slice(1));
-            }
-        });
-    }
-    Object.defineProperty(GtColumnSettingsComponent.prototype, "genericTable", {
-        get: function () {
-            return this._genericTable;
-        },
-        set: function (value) {
-            this._genericTable = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-   * Check offset height on window resize.
-   */
-    GtColumnSettingsComponent.prototype.onResize = function () {
-        this.offset = this._getTableHeadHeight();
-        this.heightAdjust = this._getColumnSettingsHeaderHeight();
-    };
-    GtColumnSettingsComponent.prototype.ngOnInit = function () {
-        this.bagId = this.generateId();
-        // setup texts
-        this.gtTexts = this.extend(this.gtDefaultTexts, this.gtTexts);
-    };
-    /**
-     * Toggle column settings visibility.
-     */
-    GtColumnSettingsComponent.prototype.toggleColumnSettings = function () {
-        var _this = this;
-        this.active = !this.active;
-        if (this.active) {
-            this.offset = this._getTableHeadHeight();
-            // check and adjust height offset
-            setTimeout(function () {
-                _this.heightAdjust = _this._getColumnSettingsHeaderHeight();
-            }, 0);
-        }
-    };
-    /**
-     * Toggle column visibility.
-     * @param {object} column - column object.
-     */
-    GtColumnSettingsComponent.prototype.toggleColumnVisibility = function (column) {
-        var _this = this;
-        // toggle column visibility
-        column.visible = !column.visible;
-        // redraw table
-        this._genericTable.redraw();
-        // check and reset offset
-        setTimeout(function () {
-            _this.offset = _this._getTableHeadHeight();
-        }, 0);
-    };
-    /**
-     * Order table by object key.
-     * @param {string} args - name of key to sort on.
-     */
-    GtColumnSettingsComponent.prototype._onDrop = function (args) {
-        this.reordered = true;
-        var e = args[0], target = args[1];
-        var order = {};
-        for (var i = 0; i < target.children.length; i++) {
-            order[target.children[i].getAttribute('data-object-key')] = i;
-        }
-        for (var i = 0; i < this._genericTable.gtSettings.length; i++) {
-            this._genericTable.gtSettings[i].columnOrder = order[this._genericTable.gtSettings[i].objectKey];
-        }
-        // reset array to trigger change detection
-        this._genericTable.gtSettings = this._genericTable.gtSettings.slice();
-        this.changeDetectorRef.markForCheck();
-        this._genericTable.redraw();
-    };
-    /**
-     * Get height of table head element ie. first row containing table headers.
-     * @returns {string} offset height for table header in px.
-     */
-    GtColumnSettingsComponent.prototype._getTableHeadHeight = function () {
-        try {
-            if (this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.tagName === 'THEAD') {
-                return this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.offsetHeight + 'px';
-            }
-            if (this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.tagName === 'THEAD') {
-                return this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.offsetHeight + 'px';
-            }
-            return '0px';
-        }
-        catch (error) {
-            return '0px';
-        }
-    };
-    /**
-     * Get height of table head element ie. first row containing table headers.
-     * @returns {string} offset height for table header in px.
-     */
-    GtColumnSettingsComponent.prototype._getColumnSettingsHeaderHeight = function () {
-        try {
-            return this.gtColumnSettingsHeader.nativeElement.offsetHeight + 'px';
-        }
-        catch (error) {
-            return '0px';
-        }
-    };
-    /** generate a unique id for dragula instance i.e. a unique bag name*/
-    GtColumnSettingsComponent.prototype.generateId = function () {
-        var d = new Date().getTime();
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = (d + Math.random() * 16) % 16 | 0;
-            d = Math.floor(d / 16);
-            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-        });
-    };
-    return GtColumnSettingsComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('window:resize', []),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], GtColumnSettingsComponent.prototype, "onResize", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */]) === "function" && _a || Object),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */]) === "function" && _b || Object])
-], GtColumnSettingsComponent.prototype, "genericTable", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('genericTableElement'),
-    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]) === "function" && _c || Object)
-], GtColumnSettingsComponent.prototype, "elementView", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('gtColumnSettingsHeader'),
-    __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _d || Object)
-], GtColumnSettingsComponent.prototype, "gtColumnSettingsHeader", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Object)
-], GtColumnSettingsComponent.prototype, "gtHeaderClasses", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Object)
-], GtColumnSettingsComponent.prototype, "gtWrapperClasses", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Object)
-], GtColumnSettingsComponent.prototype, "overlay", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]) === "function" && _e || Object)
-], GtColumnSettingsComponent.prototype, "gtColumnItem", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__["GtColumnSettingsTexts"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__["GtColumnSettingsTexts"]) === "function" && _f || Object)
-], GtColumnSettingsComponent.prototype, "gtTexts", void 0);
-GtColumnSettingsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'gt-column-settings',
-        template: "\n    <ng-template #columnItem let-column let-index=\"index\">\n      <span class=\"badge badge-default\">{{index}}</span>\n      <span (dblclick)=\"toggleColumnVisibility(column)\" class=\"badge\" [ngClass]=\"{'badge-success':column.visible !== false, 'badge-danger':column.visible === false}\">{{genericTable.gtFields | gtProperty:column.objectKey:'name'}}</span>\n    </ng-template>\n    <div class=\"gt-column-settings\">\n      <div class=\"gt-column-settings-panel\"  *ngIf=\"active\" [style.padding-top]=\"offset\" [style.height]=\"'calc(100% - '+offset+')'\">\n        <div #gtColumnSettingsHeader class=\"gt-column-settings-header border-bottom-0\" [ngClass]=\"gtHeaderClasses\">\n          <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"toggleColumnSettings()\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n          <h6 class=\"gt-column-settings-title\" *ngIf=\"gtTexts.title\">{{gtTexts.title}}</h6>\n          <small class=\"gt-column-settings-help form-text text-muted\" *ngIf=\"gtTexts.help\">{{gtTexts.help}}</small>\n        </div>\n        <div class=\"gt-column-settings-item-wrapper\" [ngClass]=\"gtWrapperClasses\" [dragula]='bagId'  data-visible=\"true\" [style.max-height]=\"'calc(100% - '+heightAdjust+')'\">\n          <div class=\"gt-column-settings-item pr-0 pr-sm-4\" *ngFor=\"let i = index;let column of genericTable.gtSettings | gtColumn\" [attr.data-object-key]=\"column.objectKey\">\n            <ng-template [ngTemplateOutlet]=\"gtColumnItem ? gtColumnItem:columnItem\" [ngOutletContext]=\"{$implicit: column,index: this.reordered ? column.columnOrder+1:i+1, name: (genericTable.gtFields | gtProperty:column.objectKey:'name')}\"></ng-template>\n          </div>\n        </div>\n        <div class=\"gt-overlay\" *ngIf=\"active && overlay\" (click)=\"toggleColumnSettings()\" [style.height]=\"'calc(100% - -'+offset+')'\"></div>\n      </div>\n      <ng-template #genericTableElement [ngIf]=\"genericTable\">\n        <ng-content></ng-content>\n      </ng-template>\n    </div>\n  "
-    }),
-    __metadata("design:paramtypes", [typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__["DragulaService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__["DragulaService"]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _h || Object])
-], GtColumnSettingsComponent);
-
-var _a, _b, _c, _d, _e, _f, _g, _h;
-//# sourceMappingURL=gt-column-settings.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/column-settings/interfaces/gt-column-settings-texts.ts":
-/***/ (function(module, exports) {
-
-//# sourceMappingURL=gt-column-settings-texts.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/components/generic-table.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interfaces_gt_texts__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-texts.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interfaces_gt_texts__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interfaces_gt_texts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__interfaces_gt_texts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_information__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-information.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_information__ = __webpack_require__(326);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_information___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__interfaces_gt_information__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__interfaces_gt_options__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-options.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__interfaces_gt_options__ = __webpack_require__(327);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__interfaces_gt_options___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__interfaces_gt_options__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GenericTableComponent; });
 var __assign = (this && this.__assign) || Object.assign || function(t) {
@@ -390,6 +88,7 @@ var GenericTableComponent = (function () {
             recordsAfterSearch: 0
         };
         this.refreshPipe = false;
+        this.refreshTotals = false;
         this.refreshSorting = false;
         /**
          * Sort table by object key.
@@ -546,12 +245,6 @@ var GenericTableComponent = (function () {
             this.refreshPageArray = !this.refreshPageArray;
             this.refreshPipe = !this.refreshPipe;
         };
-        /** Update record range. */
-        this.updateRecordRange = function () {
-            this.gtInfo.recordFrom = this.gtInfo.recordsAfterSearch === 0 ? 0 : (this.gtInfo.pageCurrent - 1) * this.gtInfo.recordLength + 1;
-            this.gtInfo.recordTo = this.gtInfo.recordsAfterSearch < this.gtInfo.pageCurrent * this.gtInfo.recordLength ? this.gtInfo.recordsAfterSearch : this.gtInfo.pageCurrent * this.gtInfo.recordLength;
-            //this._changeDetectionRef.detectChanges();
-        };
         /** Go to next page. */
         this.nextPage = function () {
             var page = this.gtInfo.pageCurrent === this.gtInfo.pageTotal ? this.gtInfo.pageTotal : this.gtInfo.pageCurrent += 1;
@@ -651,8 +344,21 @@ var GenericTableComponent = (function () {
             if ($event.name === 'gt-info') {
                 _this.updateRecordRange();
             }
+            if ($event.name === 'gt-row-updated') {
+                _this.updateTotals();
+            }
         });
     }
+    Object.defineProperty(GenericTableComponent.prototype, "gtTotals", {
+        get: function () {
+            return this._gtTotals;
+        },
+        set: function (value) {
+            this._gtTotals = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(GenericTableComponent.prototype, "gtFields", {
         get: function () {
             return this._gtFields;
@@ -683,6 +389,17 @@ var GenericTableComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    /** Update record range. */
+    GenericTableComponent.prototype.updateRecordRange = function () {
+        this.gtInfo.recordFrom = this.gtInfo.recordsAfterSearch === 0 ? 0 : (this.gtInfo.pageCurrent - 1) * this.gtInfo.recordLength + 1;
+        this.gtInfo.recordTo = this.gtInfo.recordsAfterSearch < this.gtInfo.pageCurrent * this.gtInfo.recordLength ? this.gtInfo.recordsAfterSearch : this.gtInfo.pageCurrent * this.gtInfo.recordLength;
+        //this._changeDetectionRef.detectChanges();
+    };
+    ;
+    /** Update totals. */
+    GenericTableComponent.prototype.updateTotals = function () {
+        this.refreshTotals = !this.refreshTotals;
+    };
     /**
      * Get meta data for row.
      */
@@ -970,11 +687,13 @@ var GenericTableComponent = (function () {
         this.gtInfo.filter = filter;
         // go to first page
         this.goToPage(1);
+        this.updateTotals();
     };
     ;
     /** Clear/remove applied filter(s). */
     GenericTableComponent.prototype.gtClearFilter = function () {
         this.gtInfo.filter = false;
+        this.updateTotals();
         //this.updateRecordRange();
     };
     ;
@@ -986,6 +705,7 @@ var GenericTableComponent = (function () {
         this.gtInfo.searchTerms = value;
         //always go to first page when searching
         this.goToPage(1);
+        this.updateTotals();
     };
     ;
     /**
@@ -1222,6 +942,11 @@ var GenericTableComponent = (function () {
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], GenericTableComponent.prototype, "gtTotals", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Array),
     __metadata("design:paramtypes", [Array])
 ], GenericTableComponent.prototype, "gtFields", null);
@@ -1262,7 +987,7 @@ __decorate([
 GenericTableComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'generic-table',
-        template: "\n    <table class=\"table\" ngClass=\"{{gtClasses}} {{gtOptions.stack ? 'table-stacked':''}}\" *ngIf=\"gtFields && gtSettings && (gtFields | gtVisible:gtSettings:refreshPipe).length > 0\">\n      <thead>\n      <tr>\n        <th class=\"gt-sort-label\" *ngIf=\"gtOptions.stack\">{{gtTexts.sortLabel}}</th><th *ngFor=\"let column of gtSettings | gtVisible:gtSettings:refreshPipe\" ngClass=\"{{column.objectKey +'-column' | dashCase}} {{gtFields | gtProperty:column.objectKey:'classNames'}} {{column.sortEnabled ? 'sort-'+column.sort:''}} {{column.sortEnabled && column.sortOrder >= 0  ? 'sort-order-'+column.sortOrder:''}}\" (click)=\"column.sortEnabled ? gtSort(column.objectKey,$event):'';\">{{gtFields | gtProperty:column.objectKey:'name'}}</th>\n      </tr>\n      </thead>\n      <tbody *ngIf=\"gtData && gtInfo\">\n      <ng-template class=\"table-rows\" ngFor let-row [ngForOf]=\"gtOptions.lazyLoad && gtInfo ? (gtData[gtInfo.pageCurrent-1] | gtMeta:(gtInfo.pageCurrent-1):gtInfo.recordLength) : (gtData | gtMeta:null:null:gtData.length | gtFilter:gtInfo.filter:gtInfo:refreshFilter:gtData.length | gtSearch:gtInfo.searchTerms:gtInfo:gtSettings:gtFields:gtData.length | gtOrderBy:sortOrder:gtFields:refreshSorting:gtData.length | gtChunk:gtInfo:gtInfo.recordLength:gtInfo.pageCurrent:refreshPageArray:gtData.length:gtEvent:data)\">\n        <tr [ngClass]=\"{'row-selected':metaInfo[row.$$gtRowId]?.isSelected, 'row-open':metaInfo[row.$$gtRowId]?.isOpen, 'row-loading':loading}\" (click)=\"gtOptions.rowSelection ? toggleSelect(row):null\">\n          <td *ngFor=\"let column of row | gtRender:gtSettings:gtFields:refreshPipe:loading:gtOptions.highlightSearch:gtInfo.searchTerms;\" ngClass=\"{{column.objectKey +'-column' | dashCase}} {{gtFields | gtProperty:column.objectKey:'classNames'}} {{(gtFields | gtProperty:column.objectKey:'inlineEdit') ? 'gt-inline-edit':''}} {{column.edited ? 'gt-edited':''}}\">\n            <span class=\"gt-row-label\" *ngIf=\"gtOptions.stack\">{{(gtFields | gtProperty:column.objectKey:'stackedHeading')? (gtFields | gtProperty:column.objectKey:'stackedHeading'):(gtFields | gtProperty:column.objectKey:'name')}}</span>\n            <gt-custom-component-factory *ngIf=\"column.columnComponent\" class=\"gt-row-content\" [type]=\"column.columnComponent.type\" [injector]=\"column.columnComponent.injector\" [row]=\"row\" [column]=\"column\" (redrawEvent)=\"redraw($event)\" (click)=\"column.click ? column.click(row,column):'';column.expand ? toggleCollapse(row):''\"></gt-custom-component-factory>\n            <span *ngIf=\"!column.columnComponent && !(gtFields | gtProperty:column.objectKey:'inlineEdit')\" class=\"gt-row-content\" [innerHTML]=\"column.renderValue\" (click)=\"column.click ? column.click(row,column):'';column.expand ? toggleCollapse(row):''\"></span>\n            <ng-template [ngIf]=\"!column.columnComponent && (gtFields | gtProperty:column.objectKey:'inlineEdit') === true\">\n              <input class=\"inline-edit\" type=\"text\" [(ngModel)]=\"column.renderValue\" (keyup)=\"gtUpdateColumn($event,row, column)\">\n              <span class=\"gt-inline-edit-notice\">{{gtTexts.inlineEditEdited}}</span>\n            </ng-template>\n            <gt-dropdown *ngIf=\"!column.columnComponent && (gtFields | gtProperty:column.objectKey:'inlineEdit') && (gtFields | gtProperty:column.objectKey:'inlineEdit').length > 0\" [options]=\"gtFields | gtProperty:column.objectKey:'inlineEdit'\" [(selected)]=\"column.renderValue\" (selectedChange)=\"gtSelect(row, column)\">Add inline editing module</gt-dropdown>\n          </td>\n        </tr>\n        <tr class=\"row-expanded\" *ngIf=\"metaInfo[row.$$gtRowId]?.isOpen\">\n          <td [attr.colspan]=\"(gtFields | gtVisible:gtSettings:refreshPipe).length\">\n            <gt-expanding-row [row]=\"row\" [type]=\"gtRowComponent\" (redrawEvent)=\"redraw($event)\" (toggleRowEvent)=\"toggleCollapse($event)\"></gt-expanding-row>\n          </td>\n        </tr>\n      </ng-template>\n      <tr *ngIf=\"gtInfo.pageTotal === 0 && (gtInfo.searchTerms || gtInfo.filter) && !loading\">\n        <td class=\"gt-no-matching-results\" [attr.colspan]=\"(gtFields | gtVisible:gtSettings).length\">{{gtTexts.noMatchingData}}</td>\n      </tr>\n      <tr *ngIf=\"gtInfo.pageTotal === 0 && !(gtInfo.searchTerms || gtInfo.filter) && !loading\">\n        <td class=\"gt-no-results\" [attr.colspan]=\"(gtFields | gtVisible:gtSettings).length\">{{gtTexts.noData}}</td>\n      </tr>\n      <tr *ngIf=\"gtInfo.pageTotal === 0 && loading\">\n        <td class=\"gt-loading-data\" [attr.colspan]=\"(gtFields | gtVisible:gtSettings).length\">{{gtTexts.loading}}</td>\n      </tr>\n      </tbody>\n    </table>\n    <table class=\"table\" ngClass=\"{{gtClasses}} {{gtOptions.stack ? 'table-stacked':''}}\"  *ngIf=\"gtFields && gtSettings && (gtFields | gtVisible:gtSettings:refreshPipe).length === 0\">\n      <thead>\n      <tr>\n        <th class=\"gt-no-visible-columns\">{{gtTexts.noVisibleColumnsHeading}}</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr>\n        <td class=\"gt-no-visible-columns\">{{gtTexts.noVisibleColumns}}</td>\n      </tr>\n      </tbody>\n    </table>\n    <table class=\"table\" ngClass=\"{{gtClasses}} {{gtOptions.stack ? 'table-stacked':''}}\"  *ngIf=\"!gtFields || !gtSettings\">\n      <thead>\n      <tr>\n        <th class=\"gt-loading-config\">&nbsp;</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr>\n        <td class=\"gt-loading-config\">&nbsp;</td>\n      </tr>\n      </tbody>\n    </table>\n  ",
+        template: "\n    <table class=\"table\" ngClass=\"{{gtClasses}} {{gtOptions.stack ? 'table-stacked':''}}\" *ngIf=\"gtFields && gtSettings && (gtFields | gtVisible:gtSettings:refreshPipe).length > 0\">\n      <thead>\n      <tr>\n        <th class=\"gt-sort-label\" *ngIf=\"gtOptions.stack\">{{gtTexts.sortLabel}}</th><th *ngFor=\"let column of gtSettings | gtVisible:gtSettings:refreshPipe\" ngClass=\"{{column.objectKey +'-column' | dashCase}} {{gtFields | gtProperty:column.objectKey:'classNames'}} {{column.sortEnabled ? 'sort-'+column.sort:''}} {{column.sortEnabled && column.sortOrder >= 0  ? 'sort-order-'+column.sortOrder:''}}\" (click)=\"column.sortEnabled ? gtSort(column.objectKey,$event):'';\">{{gtFields | gtProperty:column.objectKey:'name'}}</th>\n      </tr>\n      </thead>\n      <ng-template [ngIf]=\"gtTotals && (gtData | gtFilter:gtInfo.filter:gtInfo:refreshFilter:gtData.length | gtSearch:gtInfo.searchTerms:gtInfo:gtSettings:gtFields:gtData.length).length > 0\">\n        <thead class=\"gt-totals\">\n        <tr *ngFor=\"let total of gtTotals | gtTotalsPosition\">\n          <td *ngFor=\"let column of gtSettings | gtVisible:gtSettings:refreshPipe;let i = index;\" ngClass=\"{{column.objectKey +'-totals-column' | dashCase}} {{gtFields | gtProperty:column.objectKey:'classNames'}}\">{{test}}<span *ngIf=\"i === 0\" class=\"float-left\">{{total.name}}</span><span [innerHTML]=\"total.fields[column.objectKey] | gtTotals:total.update === false ? gtData:(gtData | gtFilter:gtInfo.filter:gtInfo:refreshFilter:gtData.length | gtSearch:gtInfo.searchTerms:gtInfo:gtSettings:gtFields:gtData.length):column.objectKey:refreshTotals\"></span></td>\n        </tr>\n        </thead>\n        <tfoot class=\"gt-totals\">\n        <tr *ngFor=\"let total of gtTotals | gtTotalsPosition:'footer'\">\n          <td *ngFor=\"let column of gtSettings | gtVisible:gtSettings:refreshPipe;let i = index;\" ngClass=\"{{column.objectKey +'-totals-column' | dashCase}} {{gtFields | gtProperty:column.objectKey:'classNames'}}\"><span *ngIf=\"i === 0\" class=\"float-left\">{{total.name}}</span><span [innerHTML]=\"total.fields[column.objectKey] | gtTotals:total.update === false ? gtData:(gtData | gtFilter:gtInfo.filter:gtInfo:refreshFilter:gtData.length | gtSearch:gtInfo.searchTerms:gtInfo:gtSettings:gtFields:gtData.length):column.objectKey:refreshTotals\"></span></td>\n        </tr>\n        </tfoot>\n      </ng-template>\n      <tbody *ngIf=\"gtData && gtInfo\">\n      <ng-template class=\"table-rows\" ngFor let-row [ngForOf]=\"gtOptions.lazyLoad && gtInfo ? (gtData[gtInfo.pageCurrent-1] | gtMeta:(gtInfo.pageCurrent-1):gtInfo.recordLength) : (gtData | gtMeta:null:null:gtData.length | gtFilter:gtInfo.filter:gtInfo:refreshFilter:gtData.length | gtSearch:gtInfo.searchTerms:gtInfo:gtSettings:gtFields:gtData.length | gtOrderBy:sortOrder:gtFields:refreshSorting:gtData.length | gtChunk:gtInfo:gtInfo.recordLength:gtInfo.pageCurrent:refreshPageArray:gtData.length:gtEvent:data)\">\n        <tr [ngClass]=\"{'row-selected':metaInfo[row.$$gtRowId]?.isSelected, 'row-open':metaInfo[row.$$gtRowId]?.isOpen, 'row-loading':loading}\" (click)=\"gtOptions.rowSelection ? toggleSelect(row):null\">\n          <td *ngFor=\"let column of row | gtRender:gtSettings:gtFields:refreshPipe:loading:gtOptions.highlightSearch:gtInfo.searchTerms;\" ngClass=\"{{column.objectKey +'-column' | dashCase}} {{gtFields | gtProperty:column.objectKey:'classNames'}} {{(gtFields | gtProperty:column.objectKey:'inlineEdit') ? 'gt-inline-edit':''}} {{column.edited ? 'gt-edited':''}}\">\n            <span class=\"gt-row-label\" *ngIf=\"gtOptions.stack\">{{(gtFields | gtProperty:column.objectKey:'stackedHeading')? (gtFields | gtProperty:column.objectKey:'stackedHeading'):(gtFields | gtProperty:column.objectKey:'name')}}</span>\n            <gt-custom-component-factory *ngIf=\"column.columnComponent\" class=\"gt-row-content\" [type]=\"column.columnComponent.type\" [injector]=\"column.columnComponent.injector\" [row]=\"row\" [column]=\"column\" (redrawEvent)=\"redraw($event)\" (click)=\"column.click ? column.click(row,column,$event):'';column.expand ? toggleCollapse(row):''\"></gt-custom-component-factory>\n            <span *ngIf=\"!column.columnComponent && !(gtFields | gtProperty:column.objectKey:'inlineEdit')\" class=\"gt-row-content\" [innerHTML]=\"column.renderValue\" (click)=\"column.click ? column.click(row,column,$event):'';column.expand ? toggleCollapse(row):''\"></span>\n            <ng-template [ngIf]=\"!column.columnComponent && (gtFields | gtProperty:column.objectKey:'inlineEdit') === true\">\n              <input class=\"inline-edit\" type=\"text\" [(ngModel)]=\"column.renderValue\" (keyup)=\"gtUpdateColumn($event,row, column)\">\n              <span class=\"gt-inline-edit-notice\">{{gtTexts.inlineEditEdited}}</span>\n            </ng-template>\n            <gt-dropdown *ngIf=\"!column.columnComponent && (gtFields | gtProperty:column.objectKey:'inlineEdit') && (gtFields | gtProperty:column.objectKey:'inlineEdit').length > 0\" [options]=\"gtFields | gtProperty:column.objectKey:'inlineEdit'\" [(selected)]=\"column.renderValue\" (selectedChange)=\"gtSelect(row, column)\">Add inline editing module</gt-dropdown>\n          </td>\n        </tr>\n        <tr class=\"row-expanded\" *ngIf=\"metaInfo[row.$$gtRowId]?.isOpen\">\n          <td [attr.colspan]=\"(gtFields | gtVisible:gtSettings:refreshPipe).length\">\n            <gt-expanding-row [row]=\"row\" [type]=\"gtRowComponent\" (redrawEvent)=\"redraw($event)\" (toggleRowEvent)=\"toggleCollapse($event)\"></gt-expanding-row>\n          </td>\n        </tr>\n      </ng-template>\n      <tr *ngIf=\"gtInfo.pageTotal === 0 && (gtInfo.searchTerms || gtInfo.filter) && !loading\">\n        <td class=\"gt-no-matching-results\" [attr.colspan]=\"(gtFields | gtVisible:gtSettings).length\">{{gtTexts.noMatchingData}}</td>\n      </tr>\n      <tr *ngIf=\"gtInfo.pageTotal === 0 && !(gtInfo.searchTerms || gtInfo.filter) && !loading\">\n        <td class=\"gt-no-results\" [attr.colspan]=\"(gtFields | gtVisible:gtSettings).length\">{{gtTexts.noData}}</td>\n      </tr>\n      <tr *ngIf=\"gtInfo.pageTotal === 0 && loading\">\n        <td class=\"gt-loading-data\" [attr.colspan]=\"(gtFields | gtVisible:gtSettings).length\">{{gtTexts.loading}}</td>\n      </tr>\n      </tbody>\n    </table>\n    <table class=\"table\" ngClass=\"{{gtClasses}} {{gtOptions.stack ? 'table-stacked':''}}\"  *ngIf=\"gtFields && gtSettings && (gtFields | gtVisible:gtSettings:refreshPipe).length === 0\">\n      <thead>\n      <tr>\n        <th class=\"gt-no-visible-columns\">{{gtTexts.noVisibleColumnsHeading}}</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr>\n        <td class=\"gt-no-visible-columns\">{{gtTexts.noVisibleColumns}}</td>\n      </tr>\n      </tbody>\n    </table>\n    <table class=\"table\" ngClass=\"{{gtClasses}} {{gtOptions.stack ? 'table-stacked':''}}\"  *ngIf=\"!gtFields || !gtSettings\">\n      <thead>\n      <tr>\n        <th class=\"gt-loading-config\">&nbsp;</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr>\n        <td class=\"gt-loading-config\">&nbsp;</td>\n      </tr>\n      </tbody>\n    </table>\n  ",
     }),
     __metadata("design:paramtypes", [])
 ], GenericTableComponent);
@@ -1272,11 +997,70 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/components/gt-custom-component-factory.ts":
+/***/ 146:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
+// This file includes polyfills needed by Angular and is loaded before
+// the app. You can add your own extra polyfills to this file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//# sourceMappingURL=polyfills.js.map
+
+/***/ }),
+
+/***/ 147:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return GtCustomComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtCustomComponentFactory; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1342,14 +1126,23 @@ var _a, _b;
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/components/gt-dropdown.component.ts":
+/***/ 148:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtDropdownComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__ = __webpack_require__(63);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomRowComponent; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1361,104 +1154,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var GtDropdownComponent = (function () {
-    function GtDropdownComponent(renderer) {
-        this.renderer = renderer;
-        this.selectedChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.active = false; // is dropdown active or not
-        this.state = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"](); // current state of dropdown
+var CustomRowComponent = (function (_super) {
+    __extends(CustomRowComponent, _super);
+    function CustomRowComponent() {
+        return _super.call(this) || this;
     }
-    Object.defineProperty(GtDropdownComponent.prototype, "selected", {
-        get: function () {
-            return this._selected;
-        },
-        set: function (selection) {
-            this._selected = selection;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    GtDropdownComponent.prototype.select = function (option) {
-        this.active = false;
-        this.state.next(this.active);
-        if (this._selected !== option) {
-            this.selectedChange.emit(option);
-        }
+    CustomRowComponent.prototype.ngOnInit = function () {
     };
-    GtDropdownComponent.prototype.toggleDropdown = function () {
-        var _this = this;
-        this.active = !this.active;
-        setTimeout(function () { _this.state.next(_this.active); }, 0);
+    CustomRowComponent.prototype.newRandomColor = function () {
+        this.row.favorite_color = '#000'.replace(/0/g, function (f) { return '0369cf'[Math.random() * 6 | 0]; });
+        this.$redraw();
     };
-    GtDropdownComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.state.subscribe(function (state) {
-            if (state) {
-                // set up click listener and listen for click outside dropdown
-                _this.clickListener = _this.renderer.listen('document', 'click', function (event) {
-                    _this.active = false;
-                    _this.state.next(_this.active);
-                });
-                // set up keyboard listener and listen for escape key up
-                _this.keyupListener = _this.renderer.listen('document', 'keyup', function (event) {
-                    switch (event.key) {
-                        case 'Escape':
-                            _this.active = false;
-                            _this.state.next(_this.active);
-                            break;
-                    }
-                });
-            }
-            else {
-                _this.removeListeners();
-            }
-        });
-    };
-    GtDropdownComponent.prototype.ngOnDestroy = function () {
-        this.removeListeners();
-    };
-    GtDropdownComponent.prototype.removeListeners = function () {
-        if (this.clickListener) {
-            this.clickListener();
-        }
-        if (this.keyupListener) {
-            this.keyupListener();
-        }
-    };
-    return GtDropdownComponent;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
-], GtDropdownComponent.prototype, "selected", null);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", Object)
-], GtDropdownComponent.prototype, "options", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
-], GtDropdownComponent.prototype, "selectedChange", void 0);
-GtDropdownComponent = __decorate([
+    ;
+    return CustomRowComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["c" /* GtExpandedRow */]));
+CustomRowComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'gt-dropdown',
-        template: "\n    <div class=\"dropdown gt-dropdown\" [ngClass]=\"{'show':active}\">\n      <div class=\"dropdown-toggle\" (click)=\"toggleDropdown()\" [attr.aria-expanded]=\"active\">{{selected}}</div>\n      <div class=\"dropdown-menu\" *ngIf=\"active\">\n        <button *ngFor=\"let option of options;\" class=\"dropdown-item\" (click)=\"select(option)\" [ngClass]=\"{'active':option === selected}\">{{option}}</button>\n      </div>\n    </div>\n  ",
-        styles: ["\n    .gt-dropdown .dropdown-toggle {\n      cursor: pointer;\n    }\n    .gt-dropdown .dropdown-toggle::after {\n      transition: opacity 0.4s ease-in-out;\n      opacity: 0;\n    }\n    .gt-dropdown .dropdown-toggle:hover::after {\n      opacity: 1;\n    }\n    .gt-dropdown .dropdown-menu {\n      max-height: 320px;\n      overflow: auto;\n    }"]
+        selector: 'app-custom-row',
+        template: __webpack_require__(454)
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"]) === "function" && _b || Object])
-], GtDropdownComponent);
+    __metadata("design:paramtypes", [])
+], CustomRowComponent);
 
-var _a, _b;
-//# sourceMappingURL=gt-dropdown.component.js.map
+//# sourceMappingURL=custom-row.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/components/gt-expanding-row.component.ts":
+/***/ 323:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return GtExpandedRow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtExpandingRowComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1525,12 +1251,12 @@ var _a;
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/components/gt-pagination.component.ts":
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generic_table_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/generic-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generic_table_component__ = __webpack_require__(132);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtPaginationComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return PaginationPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1646,12 +1372,12 @@ var _a, _b;
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/components/gt-table-info.component.ts":
+/***/ 325:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generic_table_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/generic-table.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generic_table_component__ = __webpack_require__(132);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtTableInfoComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return TableInfoPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1721,606 +1447,33 @@ var _a, _b;
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/core.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_generic_table_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/generic-table.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipes_gt_render_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-render.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pipes_gt_visible_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-visible.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_dash_case_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/dash-case.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_gt_property_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-property.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_gt_chunk_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-chunk.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_gt_filter_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-filter.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pipes_gt_order_by_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-order-by.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_gt_expanding_row_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-expanding-row.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_gt_search_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-search.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__directives_component_anchor_directive__ = __webpack_require__("../../../../../@angular-generic-table/core/directives/component-anchor.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-pagination.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-table-info.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_gt_custom_component_factory__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-custom-component-factory.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pipes_gt_meta_pipe__ = __webpack_require__("../../../../../@angular-generic-table/core/pipes/gt-meta.pipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_gt_dropdown_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-dropdown.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GenericTableModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var GenericTableModule = (function () {
-    function GenericTableModule() {
-    }
-    return GenericTableModule;
-}());
-GenericTableModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__angular_core__["NgModule"])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_12__directives_component_anchor_directive__["a" /* ComponentAnchorDirective */],
-            __WEBPACK_IMPORTED_MODULE_0__components_generic_table_component__["a" /* GenericTableComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__["a" /* GtPaginationComponent */],
-            __WEBPACK_IMPORTED_MODULE_2__pipes_gt_visible_pipe__["a" /* GtVisiblePipe */],
-            __WEBPACK_IMPORTED_MODULE_1__pipes_gt_render_pipe__["a" /* GtRenderPipe */],
-            __WEBPACK_IMPORTED_MODULE_3__pipes_dash_case_pipe__["a" /* DashCasePipe */],
-            __WEBPACK_IMPORTED_MODULE_4__pipes_gt_property_pipe__["a" /* GtPropertyPipe */],
-            __WEBPACK_IMPORTED_MODULE_5__pipes_gt_chunk_pipe__["a" /* GtChunkPipe */],
-            __WEBPACK_IMPORTED_MODULE_6__pipes_gt_filter_pipe__["a" /* GtFilterPipe */],
-            __WEBPACK_IMPORTED_MODULE_7__pipes_gt_order_by_pipe__["a" /* GtOrderByPipe */],
-            __WEBPACK_IMPORTED_MODULE_10__components_gt_expanding_row_component__["a" /* GtExpandingRowComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_gt_custom_component_factory__["a" /* GtCustomComponentFactory */],
-            __WEBPACK_IMPORTED_MODULE_11__pipes_gt_search_pipe__["a" /* GtSearchPipe */],
-            __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__["b" /* PaginationPipe */],
-            __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__["a" /* GtTableInfoComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__["b" /* TableInfoPipe */],
-            __WEBPACK_IMPORTED_MODULE_16__pipes_gt_meta_pipe__["a" /* GtMetaPipe */],
-            __WEBPACK_IMPORTED_MODULE_18__components_gt_dropdown_component__["a" /* GtDropdownComponent */]
-        ],
-        imports: [__WEBPACK_IMPORTED_MODULE_9__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_17__angular_forms__["a" /* FormsModule */]],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_0__components_generic_table_component__["a" /* GenericTableComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__["a" /* GtPaginationComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__["a" /* GtTableInfoComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__pipes_gt_property_pipe__["a" /* GtPropertyPipe */],
-            __WEBPACK_IMPORTED_MODULE_10__components_gt_expanding_row_component__["a" /* GtExpandingRowComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__components_gt_dropdown_component__["a" /* GtDropdownComponent */]
-        ],
-        entryComponents: [],
-        providers: [],
-        bootstrap: [] //,
-        //schemas:[CUSTOM_ELEMENTS_SCHEMA]
-    })
-], GenericTableModule);
-
-//# sourceMappingURL=core.module.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/directives/component-anchor.directive.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentAnchorDirective; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ComponentAnchorDirective = (function () {
-    function ComponentAnchorDirective(componentFactoryResolver, viewContainer) {
-        this.componentFactoryResolver = componentFactoryResolver;
-        this.viewContainer = viewContainer;
-        this.instance = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-    }
-    ComponentAnchorDirective.prototype.ngOnInit = function () {
-        var factory = this.componentFactoryResolver
-            .resolveComponentFactory(this.ctor);
-        var component = this.viewContainer
-            .createComponent(factory, 0, this.injector);
-        this.instance.emit(component.instance);
-    };
-    return ComponentAnchorDirective;
-}());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Type"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Type"]) === "function" && _a || Object)
-], ComponentAnchorDirective.prototype, "ctor", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"]) === "function" && _b || Object)
-], ComponentAnchorDirective.prototype, "injector", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
-    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _c || Object)
-], ComponentAnchorDirective.prototype, "instance", void 0);
-ComponentAnchorDirective = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
-        selector: '[appComponentAnchor]'
-    }),
-    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]) === "function" && _e || Object])
-], ComponentAnchorDirective);
-
-var _a, _b, _c, _d, _e;
-//# sourceMappingURL=component-anchor.directive.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/index.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_gt_expanding_row_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-expanding-row.component.ts");
-/* unused harmony reexport GtExpandingRowComponent */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__components_gt_expanding_row_component__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_generic_table_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/generic-table.component.ts");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__components_generic_table_component__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_gt_table_info_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-table-info.component.ts");
-/* unused harmony reexport GtTableInfoComponent */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_gt_pagination_component__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-pagination.component.ts");
-/* unused harmony reexport GtPaginationComponent */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_module__ = __webpack_require__("../../../../../@angular-generic-table/core/core.module.ts");
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__core_module__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__interfaces_gt_config__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-config.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__interfaces_gt_config___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__interfaces_gt_config__);
-/* unused harmony reexport GtConfig */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__interfaces_gt_config_field__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-config-field.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__interfaces_gt_config_field___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__interfaces_gt_config_field__);
-/* unused harmony reexport GtConfigField */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__interfaces_gt_config_setting__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-config-setting.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__interfaces_gt_config_setting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__interfaces_gt_config_setting__);
-/* unused harmony reexport GtConfigSetting */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__interfaces_gt_information__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-information.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__interfaces_gt_information___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__interfaces_gt_information__);
-/* unused harmony reexport GtInformation */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__interfaces_gt_row__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-row.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__interfaces_gt_row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__interfaces_gt_row__);
-/* unused harmony reexport GtRow */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__interfaces_gt_texts__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-texts.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__interfaces_gt_texts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__interfaces_gt_texts__);
-/* unused harmony reexport GtTexts */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__interfaces_gt_options__ = __webpack_require__("../../../../../@angular-generic-table/core/interfaces/gt-options.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__interfaces_gt_options___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__interfaces_gt_options__);
-/* unused harmony reexport GtOptions */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_gt_custom_component_factory__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-custom-component-factory.ts");
-/* unused harmony reexport GtCustomComponent */
-
-
-
-
-
-
-
-
-
-
-
-
-
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/interfaces/gt-config-field.ts":
-/***/ (function(module, exports) {
-
-//# sourceMappingURL=gt-config-field.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/interfaces/gt-config-setting.ts":
-/***/ (function(module, exports) {
-
-//# sourceMappingURL=gt-config-setting.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/interfaces/gt-config.ts":
-/***/ (function(module, exports) {
-
-//# sourceMappingURL=gt-config.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/interfaces/gt-information.ts":
+/***/ 326:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=gt-information.js.map
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/interfaces/gt-options.ts":
+/***/ 327:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=gt-options.js.map
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/interfaces/gt-row.ts":
-/***/ (function(module, exports) {
-
-//# sourceMappingURL=gt-row.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/interfaces/gt-texts.ts":
+/***/ 328:
 /***/ (function(module, exports) {
 
 //# sourceMappingURL=gt-texts.js.map
 
 /***/ }),
 
-/***/ "../../../../../@angular-generic-table/core/pipes/dash-case.pipe.ts":
+/***/ 329:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashCasePipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var DashCasePipe = (function () {
-    function DashCasePipe() {
-    }
-    DashCasePipe.prototype.transform = function (string) {
-        return string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-    };
-    return DashCasePipe;
-}());
-DashCasePipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'dashCase'
-    })
-], DashCasePipe);
-
-//# sourceMappingURL=dash-case.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-chunk.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtChunkPipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GtChunkPipe = (function () {
-    function GtChunkPipe() {
-    }
-    GtChunkPipe.prototype.transform = function (array, gtInfo, chunkSize, page, refreshPageArray, refreshData, gtEvent, data) {
-        if (!Array.isArray(array))
-            return array;
-        data.exportData = array; // store data for export
-        var pages = [];
-        for (var i = 0, len = array.length; i < len; i += chunkSize)
-            pages.push(array.slice(i, i + chunkSize));
-        gtInfo.pageTotal = pages.length;
-        setTimeout(function () { return gtEvent.emit({
-            name: 'gt-info',
-            value: gtInfo
-        }); }, 0);
-        return pages[page - 1];
-    };
-    return GtChunkPipe;
-}());
-GtChunkPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtChunk'
-    })
-], GtChunkPipe);
-
-//# sourceMappingURL=gt-chunk.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-filter.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtFilterPipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GtFilterPipe = (function () {
-    function GtFilterPipe() {
-    }
-    //@Output() filterInfo = new EventEmitter();
-    GtFilterPipe.prototype.transform = function (allRows, filterBy, gtInfo, refreshFilter, refreshData) {
-        //console.log(allRows,filterBy);
-        gtInfo.recordsAll = allRows.length;
-        if (!Array.isArray(allRows) || !filterBy) {
-            //gtInfo.filtered = false;
-            var length = allRows === null ? 0 : allRows.length;
-            gtInfo.recordsAfterFilter = length;
-            return allRows;
-        }
-        var output = [];
-        for (var i = 0; i < allRows.length; i++) {
-            var rowObject = allRows[i];
-            var match = true;
-            for (var property in filterBy) {
-                if (filterBy.hasOwnProperty(property)) {
-                    //console.log(property);
-                    //console.log(filter[property].indexOf(obj[property]));
-                    if (filterBy[property].indexOf(rowObject[property]) === -1) {
-                        match = false;
-                    }
-                }
-            }
-            if (match) {
-                output.push(rowObject);
-            }
-        }
-        gtInfo.recordsAfterFilter = output.length; //.emit(output.length);
-        return output;
-    };
-    return GtFilterPipe;
-}());
-GtFilterPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtFilter'
-    })
-], GtFilterPipe);
-
-//# sourceMappingURL=gt-filter.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-meta.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtMetaPipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GtMetaPipe = (function () {
-    function GtMetaPipe() {
-    }
-    GtMetaPipe.prototype.transform = function (allRows, page, recordLength, dataLength, metaData) {
-        for (var i = 0; i < allRows.length; i++) {
-            if (!allRows[i].$$gtRowId) {
-                allRows[i].$$gtRowId = page ? (page * recordLength + i) : i;
-            }
-        }
-        return allRows;
-    };
-    return GtMetaPipe;
-}());
-GtMetaPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtMeta'
-    })
-], GtMetaPipe);
-
-//# sourceMappingURL=gt-meta.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-order-by.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtOrderByPipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GtOrderByPipe = GtOrderByPipe_1 = (function () {
-    function GtOrderByPipe() {
-        /** Return property */
-        this.getProperty = function (array, key) {
-            for (var i = 0; i < array.length; i++) {
-                if (array[i].objectKey === key) {
-                    return array[i];
-                }
-            }
-        };
-    }
-    /** Return sort function */
-    GtOrderByPipe.prototype.getSortFunction = function (field) {
-        if (typeof field.sort === 'function') {
-            return field.sort;
-        }
-        else if (typeof field.value === 'function') {
-            return field.value;
-        }
-        else {
-            return false;
-        }
-    };
-    GtOrderByPipe._orderByComparator = function (a, b) {
-        if ((isNaN(parseFloat(a)) || !isFinite(a)) || (isNaN(parseFloat(b)) || !isFinite(b))) {
-            if (b === null || typeof b === 'undefined' && (a !== null && typeof a !== 'undefined'))
-                return 1;
-            if (a === null || typeof a === 'undefined' && (b !== null && typeof b !== 'undefined'))
-                return -1;
-            //Isn't a number so lowercase the string to properly compare
-            try {
-                if (a.toLowerCase() < b.toLowerCase())
-                    return -1;
-                if (a.toLowerCase() > b.toLowerCase())
-                    return 1;
-            }
-            catch (error) {
-                return 0;
-            }
-        }
-        else {
-            //Parse strings as numbers to compare properly
-            if (parseFloat(a) < parseFloat(b))
-                return -1;
-            if (parseFloat(a) > parseFloat(b))
-                return 1;
-        }
-        return 0; //equal each other
-    };
-    GtOrderByPipe.prototype.transform = function (input, sortByProperties, fields, refreshSorting, refreshData) {
-        var _this = this;
-        if (!Array.isArray(input) || input === null)
-            return input;
-        if (!Array.isArray(sortByProperties) || (Array.isArray(sortByProperties) && sortByProperties.length == 1)) {
-            var propertyToCheck = sortByProperties[0];
-            var desc_1 = propertyToCheck.substr(0, 1) == '-';
-            //Basic array
-            if (!propertyToCheck || propertyToCheck == '-' || propertyToCheck == '+') {
-                return !desc_1 ? input.sort() : input.sort().reverse();
-            }
-            else {
-                var property_1 = propertyToCheck.substr(0, 1) == '+' || propertyToCheck.substr(0, 1) == '-'
-                    ? propertyToCheck.substr(1)
-                    : propertyToCheck;
-                // check if custom sort function is defined
-                var sortFunction_1 = this.getSortFunction(this.getProperty(fields, property_1));
-                return input.sort(function (a, b) {
-                    // use custom sort function if one is defined
-                    var propertyA = sortFunction_1 === false ? a[property_1] : sortFunction_1(a);
-                    var propertyB = sortFunction_1 === false ? b[property_1] : sortFunction_1(b);
-                    // if both values are undefined...
-                    if (typeof propertyA === 'undefined' && typeof propertyB === 'undefined') {
-                        // ...skip comparison
-                        return;
-                    }
-                    return !desc_1 ? GtOrderByPipe_1._orderByComparator(propertyA, propertyB) : -GtOrderByPipe_1._orderByComparator(propertyA, propertyB);
-                });
-            }
-        }
-        else {
-            //Loop over property of the array in order and sort
-            return input.sort(function (a, b) {
-                //console.log('multiple');
-                for (var i = 0; i < sortByProperties.length; i++) {
-                    var desc = sortByProperties[i].substr(0, 1) == '-';
-                    var property = sortByProperties[i].substr(0, 1) == '+' || sortByProperties[i].substr(0, 1) == '-'
-                        ? sortByProperties[i].substr(1)
-                        : sortByProperties[i];
-                    //console.log(property);
-                    // check if custom sort function is defined
-                    var sortFunction = _this.getSortFunction(_this.getProperty(fields, property));
-                    // use custom sort function if one is defined
-                    var propertyA = sortFunction === false ? a[property] : sortFunction(a);
-                    var propertyB = sortFunction === false ? b[property] : sortFunction(b);
-                    var comparison = !desc ? GtOrderByPipe_1._orderByComparator(propertyA, propertyB) : -GtOrderByPipe_1._orderByComparator(propertyA, propertyB);
-                    //Don't return 0 yet in case of needing to sort by next property
-                    if (comparison != 0)
-                        return comparison;
-                }
-                return 0; //equal each other
-            });
-        }
-    };
-    return GtOrderByPipe;
-}());
-GtOrderByPipe = GtOrderByPipe_1 = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtOrderBy'
-    })
-], GtOrderByPipe);
-
-var GtOrderByPipe_1;
-//# sourceMappingURL=gt-order-by.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-property.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtPropertyPipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GtPropertyPipe = (function () {
-    function GtPropertyPipe() {
-    }
-    GtPropertyPipe.prototype.transform = function (config, objectKey, property, refresh) {
-        var output = null;
-        try {
-            for (var i = 0; i < config.length; i++) {
-                if (config[i].objectKey === objectKey) {
-                    output = config[i][property];
-                }
-            }
-        }
-        catch (error) {
-            console.log('cannot read property: "' + property + '" on missing key: "' + objectKey + '" in config.', error);
-        }
-        return output;
-    };
-    return GtPropertyPipe;
-}());
-GtPropertyPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtProperty'
-    })
-], GtPropertyPipe);
-
-//# sourceMappingURL=gt-property.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-render.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtRenderPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AggregateComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2331,525 +1484,606 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-var GtRenderPipe = (function () {
-    function GtRenderPipe(sanitizer) {
-        this.sanitizer = sanitizer;
-        // TODO: move to helper functions
-        /** Sort by column order */
-        this.getColumnOrder = function (a, b) {
-            if (a.columnOrder < b.columnOrder)
-                return -1;
-            if (a.columnOrder > b.columnOrder || typeof a.columnOrder === 'undefined')
-                return 1;
-            return 0;
-        };
-        /** Sort by length */
-        this.getOrderByLength = function (a, b) {
-            return b.length - a.length;
-        };
-        /** Return property */
-        this.getProperty = function (array, key) {
-            for (var i = 0; i < array.length; i++) {
-                if (array[i].objectKey === key) {
-                    return array[i];
-                }
-            }
-        };
-        this.sanitizer = sanitizer;
-    }
-    GtRenderPipe.prototype.highlight = function (haystack, needles) {
-        var haystackAlwaysString = haystack + '';
-        var highlightedText = haystackAlwaysString; // fallback
-        var searchPattern;
-        try {
-            searchPattern = new RegExp('(' +
-                needles.toLowerCase()
-                    .match(/".*?"|[^ ]+/g) // extract words
-                    .map(function (needle) { return needle.replace(/"(.*?)"/, '$1'); } // strip away '"'
-                )
-                    .join('|') +
-                ')', 'ig');
-        }
-        catch (error) {
-            return this.sanitizer
-                .bypassSecurityTrustHtml(highlightedText);
-        }
-        var containsTagPattern = /(<.*?>)(.*)(<\/.*?>)/ig;
-        var containsTagMatches = containsTagPattern.exec(haystackAlwaysString);
-        if (containsTagMatches) {
-            highlightedText =
-                containsTagMatches[1] +
-                    containsTagMatches[2]
-                        .replace(searchPattern, '<span class="gt-highlight-search">$1</span>') +
-                    containsTagMatches[3];
-        }
-        else {
-            highlightedText =
-                haystackAlwaysString
-                    .replace(searchPattern, '<span class="gt-highlight-search">$1</span>');
-        }
-        return this.sanitizer
-            .bypassSecurityTrustHtml(highlightedText);
-    };
-    ;
-    GtRenderPipe.prototype.transform = function (row, settings, fields, updated, loading, highlight, searchString) {
-        //let arr = [{"temp":123,"name":"happy"},{"temp":456,"name":"dfgdfg"},{"temp":789,"name":"asdasd"}];
-        //console.log(arr,arr.map(function(item){return item.temp}));
-        //console.log(settings.map('objectKey'));
-        if (highlight === void 0) { highlight = false; }
-        //console.log('render');
-        var columns = [];
-        for (var i = 0; i < settings.length; i++) {
-            if (settings[i].visible !== false && settings[i].enabled !== false) {
-                columns.push(settings[i].objectKey);
-            }
-        }
-        for (var i = 0; i < fields.length; i++) {
-            //console.log(!row[fields[i].objectKey]);
-            if (fields[i].value && typeof fields[i].value === 'function' && !row[fields[i].objectKey]) {
-                row[fields[i].objectKey] = loading ? '' : fields[i].value(row);
-            }
-        }
-        //console.log(row);
-        var keys = [];
-        for (var key in row) {
-            //console.log(key);
-            if (columns.indexOf(key) !== -1) {
-                var fieldSetting = void 0;
-                for (var i = 0; i < fields.length; i++) {
-                    if (fields[i].objectKey === key) {
-                        fieldSetting = fields[i];
-                        //console.log(fieldSetting);
+var AggregateComponent = (function () {
+    function AggregateComponent() {
+        this.data = [];
+        this.configObject = {
+            settings: [{
+                    objectKey: 'id',
+                    sort: 'asc'
+                }, {
+                    objectKey: 'name'
+                }, {
+                    objectKey: 'meetings'
+                }, {
+                    objectKey: 'sales'
+                }],
+            fields: [{
+                    name: 'Id',
+                    objectKey: 'id'
+                }, {
+                    name: 'Name',
+                    objectKey: 'name'
+                }, {
+                    name: 'Meetings',
+                    objectKey: 'meetings',
+                    classNames: 'text-right',
+                    inlineEdit: true
+                }, {
+                    name: 'Sales volume',
+                    objectKey: 'sales',
+                    classNames: 'text-right'
+                }],
+            totals: [{
+                    name: 'Total *',
+                    position: 'footer',
+                    update: false,
+                    fields: {
+                        sales: function (rows, objectKey) {
+                            return rows
+                                .map(function (row) { return parseFloat(row[objectKey]); })
+                                .reduce(function (sum, value) { return sum + value; }).toFixed(2);
+                        },
+                        name: 'Men: 46, Women: 54',
+                        meetings: function (rows, objectKey) {
+                            return rows
+                                .map(function (row) { return parseFloat(row[objectKey] === "" ? 0 : row[objectKey]); })
+                                .reduce(function (sum, value) { return sum + value; });
+                        }
                     }
-                }
-                var columnObject = {
-                    objectKey: key,
-                    sortValue: row[key],
-                    columnComponent: fieldSetting.columnComponent
-                };
-                if (loading) {
-                    columnObject.renderValue = row[key] !== null ? row[key] : '';
-                }
-                else if (highlight && searchString && this.getProperty(settings, key).search !== false) {
-                    columnObject.renderValue = fieldSetting.render && typeof fieldSetting.render === 'function' ? this.highlight(fieldSetting.render(row), searchString) : this.highlight(row[key] !== null ? row[key] : '', searchString);
-                }
-                else {
-                    columnObject.renderValue = fieldSetting.render && typeof fieldSetting.render === 'function' ? this.sanitizer.bypassSecurityTrustHtml(fieldSetting.render(row)) : row[key] !== null ? row[key] : '';
-                }
-                if (fieldSetting.click && typeof fieldSetting.click === 'function') {
-                    columnObject.click = fieldSetting.click;
-                }
-                if (fieldSetting.expand) {
-                    columnObject.expand = fieldSetting.expand;
-                }
-                keys.push(columnObject);
-            }
-        }
-        keys.sort(function (a, b) {
-            return columns.indexOf(a.objectKey) < columns.indexOf(b.objectKey) ? -1 : 1;
-        });
-        return keys;
-    };
-    return GtRenderPipe;
-}());
-GtRenderPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtRender'
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]) === "function" && _a || Object])
-], GtRenderPipe);
-
-var _a;
-//# sourceMappingURL=gt-render.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-search.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtSearchPipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GtSearchPipe = (function () {
-    function GtSearchPipe() {
-        /** Return property */
-        this.getProperty = function (array, key) {
-            for (var i = 0; i < array.length; i++) {
-                if (array[i].objectKey === key) {
-                    return array[i];
-                }
-            }
+                }, {
+                    name: 'Avg per employee',
+                    fields: {
+                        sales: function (rows, objectKey) {
+                            return (rows
+                                .map(function (row) { return parseFloat(row[objectKey]); })
+                                .reduce(function (sum, value) { return sum + value; }) / rows.length).toFixed(2);
+                        },
+                        meetings: function (rows, objectKey) {
+                            return (rows
+                                .map(function (row) { return parseFloat(row[objectKey] === "" ? 0 : row[objectKey]); })
+                                .reduce(function (sum, value) { return sum + value; }) / rows.length).toFixed(1);
+                        }
+                    }
+                }, {
+                    name: 'Avg per meeting',
+                    fields: {
+                        sales: function (rows, objectKey) {
+                            var totalMeetings = rows
+                                .map(function (row) { return parseFloat(row.meetings === "" ? 0 : row.meetings); })
+                                .reduce(function (sum, value) {
+                                return sum + value;
+                            });
+                            var totalSales = rows
+                                .map(function (row) { return parseFloat(row[objectKey]); })
+                                .reduce(function (sum, value) { return sum + value; });
+                            return (totalSales / totalMeetings).toFixed(2);
+                        }
+                    }
+                }],
+            data: [{
+                    "id": 1,
+                    "name": "Pate",
+                    "sales": 38163,
+                    "meetings": 50
+                }, {
+                    "id": 2,
+                    "name": "Zena",
+                    "sales": 32273,
+                    "meetings": 12
+                }, {
+                    "id": 3,
+                    "name": "Ailbert",
+                    "sales": 98705,
+                    "meetings": 2
+                }, {
+                    "id": 4,
+                    "name": "Fionna",
+                    "sales": 72268,
+                    "meetings": 10
+                }, {
+                    "id": 5,
+                    "name": "Tressa",
+                    "sales": 92143,
+                    "meetings": 32
+                }, {
+                    "id": 6,
+                    "name": "Vance",
+                    "sales": 30960,
+                    "meetings": 35
+                }, {
+                    "id": 7,
+                    "name": "Donia",
+                    "sales": 19390,
+                    "meetings": 47
+                }, {
+                    "id": 8,
+                    "name": "Fenelia",
+                    "sales": 23237,
+                    "meetings": 42
+                }, {
+                    "id": 9,
+                    "name": "Hailee",
+                    "sales": 36071,
+                    "meetings": 17
+                }, {
+                    "id": 10,
+                    "name": "Rayner",
+                    "sales": 56238,
+                    "meetings": 29
+                }, {
+                    "id": 11,
+                    "name": "Bobbi",
+                    "sales": 94334,
+                    "meetings": 37
+                }, {
+                    "id": 12,
+                    "name": "Hayward",
+                    "sales": 51204,
+                    "meetings": 11
+                }, {
+                    "id": 13,
+                    "name": "Tab",
+                    "sales": 66636,
+                    "meetings": 41
+                }, {
+                    "id": 14,
+                    "name": "Chloette",
+                    "sales": 44141,
+                    "meetings": 37
+                }, {
+                    "id": 15,
+                    "name": "Sonny",
+                    "sales": 74672,
+                    "meetings": 46
+                }, {
+                    "id": 16,
+                    "name": "Lorenzo",
+                    "sales": 52626,
+                    "meetings": 2
+                }, {
+                    "id": 17,
+                    "name": "Bennie",
+                    "sales": 93559,
+                    "meetings": 29
+                }, {
+                    "id": 18,
+                    "name": "Selma",
+                    "sales": 38568,
+                    "meetings": 47
+                }, {
+                    "id": 19,
+                    "name": "Missy",
+                    "sales": 18688,
+                    "meetings": 12
+                }, {
+                    "id": 20,
+                    "name": "Carree",
+                    "sales": 43477,
+                    "meetings": 48
+                }, {
+                    "id": 21,
+                    "name": "Alison",
+                    "sales": 93392,
+                    "meetings": 42
+                }, {
+                    "id": 22,
+                    "name": "Tate",
+                    "sales": 61999,
+                    "meetings": 21
+                }, {
+                    "id": 23,
+                    "name": "Kelcey",
+                    "sales": 94450,
+                    "meetings": 5
+                }, {
+                    "id": 24,
+                    "name": "Rochester",
+                    "sales": 12220,
+                    "meetings": 42
+                }, {
+                    "id": 25,
+                    "name": "Eloise",
+                    "sales": 30843,
+                    "meetings": 6
+                }, {
+                    "id": 26,
+                    "name": "Diarmid",
+                    "sales": 45267,
+                    "meetings": 2
+                }, {
+                    "id": 27,
+                    "name": "Rica",
+                    "sales": 25748,
+                    "meetings": 1
+                }, {
+                    "id": 28,
+                    "name": "Adriaens",
+                    "sales": 78366,
+                    "meetings": 39
+                }, {
+                    "id": 29,
+                    "name": "Sarena",
+                    "sales": 19838,
+                    "meetings": 6
+                }, {
+                    "id": 30,
+                    "name": "Anthe",
+                    "sales": 21687,
+                    "meetings": 47
+                }, {
+                    "id": 31,
+                    "name": "Parry",
+                    "sales": 97603,
+                    "meetings": 35
+                }, {
+                    "id": 32,
+                    "name": "Martynne",
+                    "sales": 91269,
+                    "meetings": 46
+                }, {
+                    "id": 33,
+                    "name": "Therine",
+                    "sales": 90441,
+                    "meetings": 39
+                }, {
+                    "id": 34,
+                    "name": "De witt",
+                    "sales": 46340,
+                    "meetings": 18
+                }, {
+                    "id": 35,
+                    "name": "Henrieta",
+                    "sales": 59038,
+                    "meetings": 5
+                }, {
+                    "id": 36,
+                    "name": "Estell",
+                    "sales": 90201,
+                    "meetings": 13
+                }, {
+                    "id": 37,
+                    "name": "Lenard",
+                    "sales": 92033,
+                    "meetings": 13
+                }, {
+                    "id": 38,
+                    "name": "Gypsy",
+                    "sales": 39536,
+                    "meetings": 48
+                }, {
+                    "id": 39,
+                    "name": "Moira",
+                    "sales": 42601,
+                    "meetings": 33
+                }, {
+                    "id": 40,
+                    "name": "Orly",
+                    "sales": 31429,
+                    "meetings": 19
+                }, {
+                    "id": 41,
+                    "name": "Ogden",
+                    "sales": 90292,
+                    "meetings": 36
+                }, {
+                    "id": 42,
+                    "name": "Kirsten",
+                    "sales": 65600,
+                    "meetings": 27
+                }, {
+                    "id": 43,
+                    "name": "Nester",
+                    "sales": 53651,
+                    "meetings": 37
+                }, {
+                    "id": 44,
+                    "name": "Roddie",
+                    "sales": 92812,
+                    "meetings": 23
+                }, {
+                    "id": 45,
+                    "name": "Halie",
+                    "sales": 63683,
+                    "meetings": 42
+                }, {
+                    "id": 46,
+                    "name": "Kimberlee",
+                    "sales": 25743,
+                    "meetings": 10
+                }, {
+                    "id": 47,
+                    "name": "Alfonso",
+                    "sales": 49721,
+                    "meetings": 11
+                }, {
+                    "id": 48,
+                    "name": "Adriana",
+                    "sales": 41201,
+                    "meetings": 22
+                }, {
+                    "id": 49,
+                    "name": "Josefa",
+                    "sales": 90525,
+                    "meetings": 1
+                }, {
+                    "id": 50,
+                    "name": "Domini",
+                    "sales": 60591,
+                    "meetings": 14
+                }, {
+                    "id": 51,
+                    "name": "Filia",
+                    "sales": 70784,
+                    "meetings": 30
+                }, {
+                    "id": 52,
+                    "name": "Nickolai",
+                    "sales": 31236,
+                    "meetings": 39
+                }, {
+                    "id": 53,
+                    "name": "Alexis",
+                    "sales": 63095,
+                    "meetings": 43
+                }, {
+                    "id": 54,
+                    "name": "Nikita",
+                    "sales": 28495,
+                    "meetings": 10
+                }, {
+                    "id": 55,
+                    "name": "Loralie",
+                    "sales": 77561,
+                    "meetings": 45
+                }, {
+                    "id": 56,
+                    "name": "Marthe",
+                    "sales": 83830,
+                    "meetings": 26
+                }, {
+                    "id": 57,
+                    "name": "Alvis",
+                    "sales": 89067,
+                    "meetings": 35
+                }, {
+                    "id": 58,
+                    "name": "Delmar",
+                    "sales": 97491,
+                    "meetings": 41
+                }, {
+                    "id": 59,
+                    "name": "Cross",
+                    "sales": 34674,
+                    "meetings": 20
+                }, {
+                    "id": 60,
+                    "name": "Reed",
+                    "sales": 17858,
+                    "meetings": 10
+                }, {
+                    "id": 61,
+                    "name": "Dori",
+                    "sales": 17995,
+                    "meetings": 34
+                }, {
+                    "id": 62,
+                    "name": "Dimitry",
+                    "sales": 31899,
+                    "meetings": 49
+                }, {
+                    "id": 63,
+                    "name": "Anne",
+                    "sales": 86750,
+                    "meetings": 37
+                }, {
+                    "id": 64,
+                    "name": "Emili",
+                    "sales": 28101,
+                    "meetings": 2
+                }, {
+                    "id": 65,
+                    "name": "Laurella",
+                    "sales": 40531,
+                    "meetings": 38
+                }, {
+                    "id": 66,
+                    "name": "Puff",
+                    "sales": 16958,
+                    "meetings": 44
+                }, {
+                    "id": 67,
+                    "name": "Brett",
+                    "sales": 34165,
+                    "meetings": 44
+                }, {
+                    "id": 68,
+                    "name": "Suzy",
+                    "sales": 96675,
+                    "meetings": 37
+                }, {
+                    "id": 69,
+                    "name": "Murdoch",
+                    "sales": 94628,
+                    "meetings": 10
+                }, {
+                    "id": 70,
+                    "name": "Garey",
+                    "sales": 39237,
+                    "meetings": 28
+                }, {
+                    "id": 71,
+                    "name": "Piper",
+                    "sales": 50629,
+                    "meetings": 21
+                }, {
+                    "id": 72,
+                    "name": "Perle",
+                    "sales": 84868,
+                    "meetings": 31
+                }, {
+                    "id": 73,
+                    "name": "Rachele",
+                    "sales": 18526,
+                    "meetings": 39
+                }, {
+                    "id": 74,
+                    "name": "Sibyl",
+                    "sales": 56675,
+                    "meetings": 40
+                }, {
+                    "id": 75,
+                    "name": "Wilton",
+                    "sales": 38103,
+                    "meetings": 4
+                }, {
+                    "id": 76,
+                    "name": "Brennen",
+                    "sales": 31274,
+                    "meetings": 6
+                }, {
+                    "id": 77,
+                    "name": "Delcine",
+                    "sales": 10128,
+                    "meetings": 12
+                }, {
+                    "id": 78,
+                    "name": "Dene",
+                    "sales": 56928,
+                    "meetings": 32
+                }, {
+                    "id": 79,
+                    "name": "Hallie",
+                    "sales": 46480,
+                    "meetings": 35
+                }, {
+                    "id": 80,
+                    "name": "Goran",
+                    "sales": 73266,
+                    "meetings": 44
+                }, {
+                    "id": 81,
+                    "name": "Wat",
+                    "sales": 21856,
+                    "meetings": 11
+                }, {
+                    "id": 82,
+                    "name": "Lotti",
+                    "sales": 77348,
+                    "meetings": 35
+                }, {
+                    "id": 83,
+                    "name": "Charity",
+                    "sales": 64092,
+                    "meetings": 40
+                }, {
+                    "id": 84,
+                    "name": "Maris",
+                    "sales": 97636,
+                    "meetings": 29
+                }, {
+                    "id": 85,
+                    "name": "Thorsten",
+                    "sales": 20258,
+                    "meetings": 46
+                }, {
+                    "id": 86,
+                    "name": "Corella",
+                    "sales": 47555,
+                    "meetings": 21
+                }, {
+                    "id": 87,
+                    "name": "Berkeley",
+                    "sales": 22597,
+                    "meetings": 44
+                }, {
+                    "id": 88,
+                    "name": "Ezekiel",
+                    "sales": 60014,
+                    "meetings": 4
+                }, {
+                    "id": 89,
+                    "name": "Salomone",
+                    "sales": 61406,
+                    "meetings": 27
+                }, {
+                    "id": 90,
+                    "name": "Rebeca",
+                    "sales": 60268,
+                    "meetings": 39
+                }, {
+                    "id": 91,
+                    "name": "Biddy",
+                    "sales": 20856,
+                    "meetings": 18
+                }, {
+                    "id": 92,
+                    "name": "Karlik",
+                    "sales": 65305,
+                    "meetings": 26
+                }, {
+                    "id": 93,
+                    "name": "Sue",
+                    "sales": 40540,
+                    "meetings": 31
+                }, {
+                    "id": 94,
+                    "name": "Patrizia",
+                    "sales": 48884,
+                    "meetings": 26
+                }, {
+                    "id": 95,
+                    "name": "Chariot",
+                    "sales": 28795,
+                    "meetings": 12
+                }, {
+                    "id": 96,
+                    "name": "Spenser",
+                    "sales": 59791,
+                    "meetings": 2
+                }, {
+                    "id": 97,
+                    "name": "Delphine",
+                    "sales": 98330,
+                    "meetings": 42
+                }, {
+                    "id": 98,
+                    "name": "Sonnnie",
+                    "sales": 89929,
+                    "meetings": 45
+                }, {
+                    "id": 99,
+                    "name": "Annecorinne",
+                    "sales": 29895,
+                    "meetings": 7
+                }, {
+                    "id": 100,
+                    "name": "Ferdinande",
+                    "sales": 73269,
+                    "meetings": 10
+                }]
         };
     }
-    GtSearchPipe.prototype.transform = function (allRows, searchTerms, gtInfo, settings, fields, refreshData) {
-        //  if no search terms are defined...
-        if (!searchTerms || searchTerms.replace(/"/g, '').length === 0) {
-            // ...return all rows
-            var length = allRows === null ? 0 : allRows.length;
-            gtInfo.recordsAfterSearch = length;
-            return allRows;
-        }
-        var searchFunction = {};
-        var fieldsTemp = [];
-        for (var k = 0; k < fields.length; k++) {
-            var field = fields[k];
-            // check if field should be included in global search
-            var include = this.getProperty(settings, field.objectKey).search === false ? false : true;
-            // if include...
-            if (include) {
-                // ...and if search function is defined...
-                if (typeof field.search === 'function') {
-                    // ...add it as search function for field
-                    searchFunction[field.objectKey] = field.search;
-                }
-                else if (typeof field.value === 'function') {
-                    // ...add it as search function for field
-                    searchFunction[field.objectKey] = field.value;
-                }
-                // ...push it to our fields array
-                fieldsTemp.push(field);
-            }
-        }
-        var filteredRows = [];
-        searchTerms = typeof searchTerms === 'undefined' ? '' : searchTerms;
-        var searchTermsArray = searchTerms.toLowerCase().match(/(".*"|[^\s]+)/g);
-        for (var i = 0; i < allRows.length; i++) {
-            var row = allRows[i];
-            var string = '';
-            for (var j = 0; j < fieldsTemp.length; j++) {
-                var separator = j === 0 ? '' : ' & ';
-                string += searchFunction[fieldsTemp[j].objectKey] ? separator + searchFunction[fieldsTemp[j].objectKey](row, j) : separator + row[fieldsTemp[j].objectKey];
-            }
-            string = string.toLowerCase();
-            var match = true;
-            for (var k = 0; k < searchTermsArray.length; k++) {
-                var term = searchTermsArray[k].replace(/"/g, '');
-                match = string.indexOf(term) !== -1;
-                if (!match) {
-                    break;
-                }
-            }
-            if (match) {
-                filteredRows.push(row);
-            }
-        }
-        gtInfo.recordsAfterSearch = filteredRows.length;
-        //gtInfo.refresh(filteredRows.length,gt);
-        return filteredRows;
-    };
-    return GtSearchPipe;
+    return AggregateComponent;
 }());
-GtSearchPipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtSearch'
-    })
-], GtSearchPipe);
-
-//# sourceMappingURL=gt-search.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../@angular-generic-table/core/pipes/gt-visible.pipe.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtVisiblePipe; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GtVisiblePipe = (function () {
-    function GtVisiblePipe() {
-        // TODO: move to helper functions
-        /** Sort by column order */
-        this.getColumnOrder = function (a, b) {
-            if (a.columnOrder < b.columnOrder)
-                return -1;
-            if (a.columnOrder > b.columnOrder || typeof a.columnOrder === 'undefined')
-                return 1;
-            return 0;
-        };
-    }
-    GtVisiblePipe.prototype.transform = function (array, settings) {
-        var visibleColumns = settings.sort(this.getColumnOrder).map(function (setting) {
-            if (setting.visible !== false && setting.enabled !== false) {
-                return setting.objectKey;
-            }
-        });
-        return array.filter(function (column) {
-            return visibleColumns.indexOf(column.objectKey) !== -1;
-        }).sort(function (a, b) {
-            return visibleColumns.indexOf(a.objectKey) < visibleColumns.indexOf(b.objectKey) ? -1 : 1;
-        });
-    };
-    return GtVisiblePipe;
-}());
-GtVisiblePipe = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
-        name: 'gtVisible'
-    })
-], GtVisiblePipe);
-
-//# sourceMappingURL=gt-visible.pipe.js.map
-
-/***/ }),
-
-/***/ "../../../../../src async recursive":
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "../../../../../src async recursive";
-
-/***/ }),
-
-/***/ "../../../../../src/app/app-routing.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lazy_lazy_component__ = __webpack_require__("../../../../../src/app/lazy/lazy.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rest_rest_component__ = __webpack_require__("../../../../../src/app/rest/rest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__basic_basic_component__ = __webpack_require__("../../../../../src/app/basic/basic.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__custom_column_custom_column_component__ = __webpack_require__("../../../../../src/app/custom-column/custom-column.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__localization_localization_component__ = __webpack_require__("../../../../../src/app/localization/localization.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__change_column_settings_change_column_settings_component__ = __webpack_require__("../../../../../src/app/change-column-settings/change-column-settings.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__inline_editing_inline_editing_component__ = __webpack_require__("../../../../../src/app/inline-editing/inline-editing.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__column_click_column_click_component__ = __webpack_require__("../../../../../src/app/column-click/column-click.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-
-
-
-
-
-
-var routes = [
-    { path: '', redirectTo: '/start', pathMatch: 'full' },
-    { path: 'start', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */] },
-    { path: 'lazy', component: __WEBPACK_IMPORTED_MODULE_2__lazy_lazy_component__["a" /* LazyComponent */] },
-    { path: 'advanced', component: __WEBPACK_IMPORTED_MODULE_3__rest_rest_component__["a" /* RestComponent */] },
-    { path: 'basic', component: __WEBPACK_IMPORTED_MODULE_4__basic_basic_component__["a" /* BasicComponent */] },
-    { path: 'custom-column', component: __WEBPACK_IMPORTED_MODULE_5__custom_column_custom_column_component__["a" /* CustomColumnComponent */] },
-    { path: 'column-click', component: __WEBPACK_IMPORTED_MODULE_10__column_click_column_click_component__["a" /* ColumnClickComponent */] },
-    { path: 'localization', component: __WEBPACK_IMPORTED_MODULE_6__localization_localization_component__["a" /* LocalizationComponent */] },
-    { path: 'inline-editing', component: __WEBPACK_IMPORTED_MODULE_9__inline_editing_inline_editing_component__["a" /* InlineEditingComponent */] },
-    { path: 'column-settings-component', component: __WEBPACK_IMPORTED_MODULE_7__change_column_settings_change_column_settings_component__["a" /* ChangeColumnSettingsComponent */] },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */] }
-];
-var AppRoutingModule = (function () {
-    function AppRoutingModule() {
-    }
-    return AppRoutingModule;
-}());
-AppRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
-    })
-], AppRoutingModule);
-
-//# sourceMappingURL=app-routing.module.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/app.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"hidden-md-up fixed-top container-fluid mobile-menu px-3 py-2\">\r\n    <div class=\"menu-icon float-right\" [ngClass]=\"{'active':showMenu}\" (click)=\"showMenu = !showMenu\"><div></div></div>\r\n    <menu *ngIf=\"showMenu\" class=\"mt-4 p-0 text-white\"></menu>\r\n</div>\r\n<div class=\"jumbotron mt-4 mt-md-0 bg-teal text-white rounded-0\">\r\n    <div class=\"row no-gutters\">\r\n        <div class=\"col main\">\r\n            <div class=\"container\">\r\n                <h1 class=\"display-4\">Angular Generic Table</h1>\r\n                <p class=\"lead\">A table component for Angular 2+. For more info checkout the docs in the wiki.</p>\r\n                <a class=\"btn btn-primary\" href=\"https://github.com/hjalmers/angular-generic-table/wiki\" target=\"_blank\">Go to wiki</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"row no-gutters\">\r\n    <div class=\"col main\">\r\n        <div class=\"container\">\r\n            <router-outlet></router-outlet>\r\n        </div>\r\n    </div>\r\n    <div class=\"col col-auto side hidden-sm-down\">\r\n        <menu class=\"p-0\"></menu>\r\n    </div>\r\n</div>\r\n\r\n\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/app.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var AppComponent = (function () {
-    function AppComponent() {
-        this.showMenu = false;
-    }
-    return AppComponent;
-}());
-AppComponent = __decorate([
+AggregateComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-root',
-        template: __webpack_require__("../../../../../src/app/app.component.html")
-    })
-], AppComponent);
+        selector: 'aggregate',
+        template: __webpack_require__(448),
+        styles: []
+    }),
+    __metadata("design:paramtypes", [])
+], AggregateComponent);
 
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=aggregate.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/app.module.ts":
+/***/ 330:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lazy_lazy_component__ = __webpack_require__("../../../../../src/app/lazy/lazy.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rest_rest_component__ = __webpack_require__("../../../../../src/app/rest/rest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__custom_row_custom_row_component__ = __webpack_require__("../../../../../src/app/custom-row/custom-row.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_basic_component__ = __webpack_require__("../../../../../src/app/basic/basic.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__examples_examples_component__ = __webpack_require__("../../../../../src/app/examples/examples.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angular_exemplify__ = __webpack_require__("../../../../angular-exemplify/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angular_exemplify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_angular_exemplify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__localization_localization_component__ = __webpack_require__("../../../../../src/app/localization/localization.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__ = __webpack_require__("../../../../../src/app/custom-column/custom-column.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_generic_table_core__ = __webpack_require__("../../../../../@angular-generic-table/core/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_generic_table_column_settings_column_settings_module__ = __webpack_require__("../../../../../@angular-generic-table/column-settings/column-settings.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__change_column_settings_change_column_settings_component__ = __webpack_require__("../../../../../src/app/change-column-settings/change-column-settings.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__menu_menu_component__ = __webpack_require__("../../../../../src/app/menu/menu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__inline_editing_inline_editing_component__ = __webpack_require__("../../../../../src/app/inline-editing/inline-editing.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__column_click_column_click_component__ = __webpack_require__("../../../../../src/app/column-click/column-click.component.ts");
-/* unused harmony export createTranslateLoader */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-/** Components used in example */
-
-
-
-
-
-
-
-
-
-
-/** Only needed when using ng2-translate */
-
-
-function createTranslateLoader(http) {
-    return new __WEBPACK_IMPORTED_MODULE_15__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
-}
-/** Import generic table module */
-
-
-
-
-
-
-
-var AppModule = (function () {
-    function AppModule() {
-    }
-    return AppModule;
-}());
-AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__lazy_lazy_component__["a" /* LazyComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__rest_rest_component__["a" /* RestComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__custom_row_custom_row_component__["a" /* CustomRowComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["a" /* CustomColumnComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["b" /* NameComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["c" /* AgeComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__basic_basic_component__["a" /* BasicComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__examples_examples_component__["a" /* ExamplesComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__localization_localization_component__["a" /* LocalizationComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__change_column_settings_change_column_settings_component__["a" /* ChangeColumnSettingsComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__home_home_component__["a" /* HomeComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__menu_menu_component__["a" /* MenuComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__inline_editing_inline_editing_component__["a" /* InlineEditingComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__column_click_column_click_component__["a" /* ColumnClickComponent */]
-        ],
-        imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-            __WEBPACK_IMPORTED_MODULE_16__angular_generic_table_core__["a" /* GenericTableModule */],
-            __WEBPACK_IMPORTED_MODULE_17__angular_generic_table_column_settings_column_settings_module__["a" /* ColumnSettingsModule */],
-            __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_11_angular_exemplify__["ExemplifyModule"],
-            /** translate module only needed for localization when using ngx */
-            __WEBPACK_IMPORTED_MODULE_14__ngx_translate_core__["a" /* TranslateModule */].forRoot({
-                loader: {
-                    provide: __WEBPACK_IMPORTED_MODULE_14__ngx_translate_core__["b" /* TranslateLoader */],
-                    useFactory: (createTranslateLoader),
-                    deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"]]
-                }
-            })
-        ],
-        /** add components used by your table i.e. for expanding rows etc. as entry components */
-        entryComponents: [
-            __WEBPACK_IMPORTED_MODULE_7__custom_row_custom_row_component__["a" /* CustomRowComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["b" /* NameComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["c" /* AgeComponent */]
-        ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
-    })
-], AppModule);
-
-//# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/basic/basic.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Basic</h2>\r\n<p>Table with static data and simple pagination.</p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"basicExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','#myTable']\" [source]=\"'child'\" [target]=\"basicExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'basic.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/basic/basic.component.ts'\r\n  }]\">\r\n    <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\"></generic-table>\r\n    <div class=\"text-center\">\r\n      <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\r\n      <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\r\n    </div>\r\n  </div>\r\n  <div class=\"card-footer\" #basicExample></div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/basic/basic.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BasicComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3300,7 +2534,7 @@ var BasicComponent = (function () {
 BasicComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-basic',
-        template: __webpack_require__("../../../../../src/app/basic/basic.component.html")
+        template: __webpack_require__(450)
     }),
     __metadata("design:paramtypes", [])
 ], BasicComponent);
@@ -3309,18 +2543,11 @@ BasicComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/change-column-settings/change-column-settings.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Column settings component</h2>\r\n<p class=\"lead\">Toggle column visibility and column order using the <code>ColumnSettingsComponent</code>.</p>\r\n<h5>Installation</h5>\r\n<p>Install with npm by running:</p>\r\n<code>npm install @angular-generic-table/column-settings dragula ng2-dragula --save</code>\r\n<p class=\"mt-4\">More info available in the <a href=\"https://github.com/hjalmers/angular-generic-table/wiki/Installation-and-basic-usage\" target=\"_blank\">wiki</a>.</p>\r\n\r\n<h5>Usage</h5>\r\n<p>This how the <code>ColumnSettingsComponent</code> looks and behaves by default but feel free to customize it using css or by passing predefined classes. You can also define your own template for the columns.</p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"columnSettingsExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','#myTable','#columnSettings']\" [source]=\"'child'\" [target]=\"columnSettingsExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'change-column-settings.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/change-column-settings/change-column-settings.component.ts'\r\n  }]\">\r\n    <button class=\"btn-link\" (click)=\"columnSettings.toggleColumnSettings()\"> {{columnSettings.active ? 'Hide column settings':'Show column settings'}}</button>\r\n    <gt-column-settings [genericTable]=\"myTable\" #columnSettings>\r\n      <div class=\"table-responsive\">\r\n        <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"firstConfigObject.settings\" [gtFields]=\"firstConfigObject.fields\" [gtData]=\"firstConfigObject.data\" [gtOptions]=\"{numberOfRows:5}\"></generic-table>\r\n      </div>\r\n      <div class=\"text-center\">\r\n        <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\r\n      </div>\r\n    </gt-column-settings>\r\n\r\n  </div>\r\n  <div class=\"card-footer\" #columnSettingsExample></div>\r\n</div>\r\n\r\n<h5>Customize</h5>\r\n<p>Pass your own template for columns and change texts and css/classes for a custom look and feel.</p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"columnSettingsTemplateExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','gtColumnItem','#myCustomTable','[ngClass]','#customColumnSettings','gtTexts','gtHeaderClasses','gtWrapperClasses']\" [source]=\"'child'\" [target]=\"columnSettingsTemplateExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'change-column-settings.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/change-column-settings/change-column-settings.component.ts'\r\n  }]\">\r\n    <ng-template #gtColumnItem let-column let-index=\"index\" let-name=\"name\">\r\n      <div class=\"btn-group mb-1 col-12 p-0\" role=\"group\">\r\n        <button type=\"button\" class=\"btn btn-sm w-100\" [ngClass]=\"{'btn-success':column.visible !== false, 'btn-danger':column.visible === false}\" style=\"cursor: move;\">{{index}}: {{name}}</button>\r\n        <button type=\"button\" class=\"btn btn-secondary btn-sm w-100\"  (click)=\"customColumnSettings.toggleColumnVisibility(column)\" style=\"cursor: pointer;\">{{column.visible !== false ? 'visible':'hidden'}}</button>\r\n      </div>\r\n    </ng-template>\r\n    <button class=\"btn-link\" (click)=\"customColumnSettings.toggleColumnSettings()\"> {{customColumnSettings.active ? 'Hide column settings':'Show column settings'}}</button>\r\n    <gt-column-settings [genericTable]=\"myCustomTable\" #customColumnSettings [gtColumnItem]=\"gtColumnItem\" [gtTexts]=\"{help:'Click to toggle column visibility, drag to reorder.'}\" [gtHeaderClasses]=\"'px-3 pt-3 pb-2 bg-faded'\" [gtWrapperClasses]=\"'px-3 pb-2 bg-faded h-50'\">\r\n      <div class=\"table-responsive\">\r\n        <generic-table [gtClasses]=\"'table-hover'\" #myCustomTable [gtSettings]=\"secondConfigObject.settings\" [gtFields]=\"secondConfigObject.fields\" [gtData]=\"secondConfigObject.data\"></generic-table>\r\n      </div>\r\n      <div class=\"text-center\">\r\n        <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myCustomTable\"></gt-pagination>\r\n      </div>\r\n    </gt-column-settings>\r\n  </div>\r\n  <div class=\"card-footer\" #columnSettingsTemplateExample></div>\r\n</div>\r\n\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/change-column-settings/change-column-settings.component.ts":
+/***/ 331:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangeColumnSettingsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3598,7 +2825,7 @@ var ChangeColumnSettingsComponent = (function () {
 ChangeColumnSettingsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'change-column-settings',
-        template: __webpack_require__("../../../../../src/app/change-column-settings/change-column-settings.component.html")
+        template: __webpack_require__(451)
     }),
     __metadata("design:paramtypes", [])
 ], ChangeColumnSettingsComponent);
@@ -3607,19 +2834,12 @@ ChangeColumnSettingsComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/column-click/column-click.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Column click</h2>\r\n<p>This examples uses column click function to re-order rows, but you could call any function you like and apply your own style if you want something else than a regular button.</p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"columnClickExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','#myTable','ngModel','[ngClass]','#columnSettings','gtEvent']\" [source]=\"'child'\" [target]=\"columnClickExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'column-click.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/column-click/column-click.component.ts'\r\n  }]\">\r\n    <div class=\"table-responsive\">\r\n      <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\"></generic-table>\r\n    </div>\r\n    <div class=\"text-center\">\r\n      <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\r\n    </div>\r\n  </div>\r\n  <div class=\"card-footer\" #columnClickExample>\r\n  </div>\r\n</div>\r\n\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/column-click/column-click.component.ts":
+/***/ 332:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__ = __webpack_require__("../../../../../@angular-generic-table/core/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__ = __webpack_require__(63);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ColumnClickComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3827,7 +3047,7 @@ __decorate([
 ColumnClickComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'column-click',
-        template: __webpack_require__("../../../../../src/app/column-click/column-click.component.html")
+        template: __webpack_require__(452)
     }),
     __metadata("design:paramtypes", [])
 ], ColumnClickComponent);
@@ -3837,35 +3057,28 @@ var _a;
 
 /***/ }),
 
-/***/ "../../../../../src/app/custom-column/custom-column.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Custom columns</h2>\r\n<p>Table using two custom column widgets, as well as external state tracking.</p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"customColumnsExample\" [context]=\"this\"\r\n       [escapeStrings]=\"['gtSettings','gtFields','gtData','gtClasses']\"\r\n       [source]=\"'child'\" [target]=\"customColumnsExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name: 'app.module.ts',\r\n    src: 'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },\r\n  {\r\n    name: 'custom-column.component.ts',\r\n    src: 'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/custom-column/custom-column.component.ts'\r\n  }]\">\r\n    <generic-table [gtSettings]=\"gtConfig.settings\"\r\n                   [gtFields]=\"gtConfig.fields\"\r\n                   [gtData]=\"gtConfig.data\"\r\n                   [gtClasses]=\"'table-sm'\"></generic-table>\r\n    <button type=\"button\" class=\"btn btn-primary btn-sm float-right\" (click)=\"saveAll()\">Save All</button>\r\n  </div>\r\n  <div class=\"card-footer\" #customColumnsExample></div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/custom-column/custom-column.component.ts":
+/***/ 333:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(135);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_delay__ = __webpack_require__("../../../../rxjs/add/operator/delay.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_delay__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_delay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_delay__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__("../../../../rxjs/add/operator/do.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__(350);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter__ = __webpack_require__("../../../../rxjs/add/operator/filter.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_filter__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_scan__ = __webpack_require__("../../../../rxjs/add/operator/scan.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_scan__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_scan___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_scan__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_startWith__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_take__ = __webpack_require__("../../../../rxjs/add/operator/take.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_take__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_take__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_generic_table_core_components_gt_custom_component_factory__ = __webpack_require__("../../../../../@angular-generic-table/core/components/gt-custom-component-factory.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_generic_table_core_components_gt_custom_component_factory__ = __webpack_require__(147);
 /* unused harmony export deepCopy */
 /* unused harmony export StateService */
 /* unused harmony export EditService */
@@ -4149,7 +3362,7 @@ var CustomColumnComponent = (function () {
 CustomColumnComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-custom-column',
-        template: __webpack_require__("../../../../../src/app/custom-column/custom-column.component.html"),
+        template: __webpack_require__(453),
         providers: [EditService, StateService]
     }),
     __metadata("design:paramtypes", [EditService,
@@ -4160,139 +3373,11 @@ CustomColumnComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/custom-row/custom-row.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\r\n<div class=\"col-sm-12\">\r\n  <div class=\"row\">\r\n    <h4 class=\"col-10\">My custom row component</h4>\r\n    <div class=\"col-2 text-sm-right\">\r\n      <i class=\"fa fa-close fa-lg\" (click)=\"$hide()\" aria-hidden=\"true\"></i>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"form-group col-sm-3\">\r\n      <label class=\"control-label\">First name</label>\r\n      <div class=\"form-control-static\">{{row.first_name}}</div>\r\n    </div>\r\n    <div class=\"form-group col-sm-3\">\r\n      <label class=\"control-label\">Last name</label>\r\n      <div class=\"form-control-static\">{{row.last_name}}</div>\r\n    </div>\r\n    <div class=\"form-group col-sm-3\">\r\n      <label class=\"control-label\">Favorite color</label>\r\n      <div class=\"form-control-static\">{{row.favorite_color}}</div>\r\n    </div>\r\n    <div class=\"form-group col-sm-3\">\r\n      <div style=\"border-radius: 50%;width: 55px;height: 55px;display: inline-block;vertical-align: middle;\" [style.background]=\"row.favorite_color\"></div>\r\n    </div>\r\n  </div>\r\n  <button class=\"btn btn-primary btn btn-primary col-12 col-sm-auto float-right\" (click)=\"newRandomColor();\">New random color</button>\r\n</div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/custom-row/custom-row.component.ts":
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__ = __webpack_require__("../../../../../@angular-generic-table/core/index.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomRowComponent; });
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var CustomRowComponent = (function (_super) {
-    __extends(CustomRowComponent, _super);
-    function CustomRowComponent() {
-        return _super.call(this) || this;
-    }
-    CustomRowComponent.prototype.ngOnInit = function () {
-    };
-    CustomRowComponent.prototype.newRandomColor = function () {
-        this.row.favorite_color = '#000'.replace(/0/g, function (f) { return '0369cf'[Math.random() * 6 | 0]; });
-        this.$redraw();
-    };
-    ;
-    return CustomRowComponent;
-}(__WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["c" /* GtExpandedRow */]));
-CustomRowComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-custom-row',
-        template: __webpack_require__("../../../../../src/app/custom-row/custom-row.component.html")
-    }),
-    __metadata("design:paramtypes", [])
-], CustomRowComponent);
-
-//# sourceMappingURL=custom-row.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/examples/examples.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"container mt-4\">\r\n  <h1>Angular Generic Table Demo</h1>\r\n  <p>Angular Generic Table is a generic table component for Angular. It uses standard markup for tables ie. table, tr and td elements etc. and has support for expanding rows, global search, filters, sorting on multiple columns, pagination, export to CSV, column clicks, row selection, custom column rendering, custom export values, responsive layout etc. See <a href=\"https://github.com/hjalmers/angular-generic-table\" target=\"_blank\">docs</a> for more info.</p>\r\n  <h3>Examples</h3>\r\n  <ul class=\"nav flex-column mb-5\">\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"examples#basic\">Basic static example</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"examples#rest\">Fetch data using REST</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"examples#localization\">Localization</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"examples#custom\">Custom component inside table cell</a>\r\n    </li>\r\n    <li class=\"nav-item\">\r\n      <a class=\"nav-link\" href=\"examples#lazy\">Lazy loading</a>\r\n    </li>\r\n  </ul>\r\n  <app-basic></app-basic>\r\n  <app-rest></app-rest>\r\n  <app-localization></app-localization>\r\n  <app-custom-column></app-custom-column>\r\n  <app-lazy></app-lazy>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/examples/examples.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExamplesComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ExamplesComponent = (function () {
-    function ExamplesComponent() {
-    }
-    ExamplesComponent.prototype.ngOnInit = function () {
-    };
-    return ExamplesComponent;
-}());
-ExamplesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'app-examples',
-        template: __webpack_require__("../../../../../src/app/examples/examples.component.html"),
-    }),
-    __metadata("design:paramtypes", [])
-], ExamplesComponent);
-
-//# sourceMappingURL=examples.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/home/home.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Getting started</h2>\r\n<p class=\"lead\">Angular Generic Table is a generic table component for Angular. It uses standard markup for tables ie. table, tr and td elements etc. and has support for expanding rows, row selection, global search, filters, sorting on multiple columns, pagination, export to CSV, column clicks, custom column rendering, custom export values, responsive layout etc.</p>\r\n<h5>Installation and usage</h5>\r\n<p>Install with npm by running:</p>\r\n<code>npm install @angular-generic-table/core --save</code>\r\n<p class=\"mt-4\">More info available in the <a href=\"https://github.com/hjalmers/angular-generic-table/wiki/Installation-and-usage\" target=\"_blank\">wiki</a>, feel free to look at the <a routerLink=\"/basic\">basic setup</a> too:)</p>\r\n<h5 class=\"mt-4\">Configuration and options</h5>\r\n<p>Check out the <a href=\"https://github.com/hjalmers/angular-generic-table/wiki\" target=\"_blank\">wiki articles</a> for more info.</p>\r\n\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/home/home.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/home/home.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4314,8 +3399,8 @@ var HomeComponent = (function () {
 HomeComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'home',
-        template: __webpack_require__("../../../../../src/app/home/home.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/home/home.component.scss")]
+        template: __webpack_require__(456),
+        styles: [__webpack_require__(444)]
     }),
     __metadata("design:paramtypes", [])
 ], HomeComponent);
@@ -4324,18 +3409,11 @@ HomeComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/inline-editing/inline-editing.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Inline editing</h2>\r\n<p>Table with simple inline editing. Edit cells using input field or select a value from a dropdown.</p>\r\n<div class=\"alert alert-info\">Please note that this example only persists changes in memory so the data will be reset when component is reinitialized e.g when route changes or page is refreshed.</div>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"inlineEditExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','#myTable']\" [source]=\"'child'\" [target]=\"inlineEditExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'inline-editing.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/inline-editing/inline-editing.component.ts'\r\n  }]\">\r\n    <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\" (gtEvent)=\"trigger($event)\"></generic-table>\r\n    <div class=\"text-center\">\r\n      <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\r\n      <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\r\n    </div>\r\n    <div class=\"alert alert-info\" *ngIf=\"updatedRow\">\r\n      <div><strong>From:</strong> {{updatedRow?.oldValue | json}}</div>\r\n      <div><strong>To:</strong> {{updatedRow?.newValue | json}}</div>\r\n      <div><strong>Original:</strong> {{updatedRow?.originalValue | json}}</div>\r\n    </div>\r\n\r\n  </div>\r\n  <div class=\"card-footer\" #inlineEditExample></div>\r\n</div>\r\n\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/inline-editing/inline-editing.component.ts":
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InlineEditingComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4704,7 +3782,7 @@ var InlineEditingComponent = (function () {
 InlineEditingComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'inline-editing',
-        template: __webpack_require__("../../../../../src/app/inline-editing/inline-editing.component.html")
+        template: __webpack_require__(457)
     }),
     __metadata("design:paramtypes", [])
 ], InlineEditingComponent);
@@ -4713,21 +3791,14 @@ InlineEditingComponent = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/lazy/lazy.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Lazy loading</h2>\r\n<p>Use lazy loading to speed things up when working with large data sets and cache data in the table if you want to avoid unnecessary server requests. This example also utilizes column stacking on tablets and mobile devices so resize the browser and see what happens with the layout on smaller screens.</p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"lazyExample\" [context]=\"this\" [escapeStrings]=\"escape\" [source]=\"'child'\" [target]=\"lazyExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'lazy.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/lazy/lazy.component.ts'\r\n  }]\">\r\n    <form class=\"form form-inline mb-4\">\r\n      <label for=\"highlight_input\" class=\"form-control-label mr-sm-2\">Search</label>\r\n      <input id=\"highlight_input\" class=\"form-control form-control-sm mb-2 mr-sm-2 mb-sm-0\" value=\"al\" disabled placeholder=\"Search\"/>\r\n      <label class=\"form-control-label mr-sm-2\">Visible columns:</label>\r\n      <div class=\"form-check form-check-inline ml-0 mr-sm-2\" *ngFor=\"let column of configObject.settings\">\r\n        <label class=\"form-check-label\">\r\n          <input type=\"checkbox\" name=\"{{column.objectKey}}\" class=\"form-check-input\" [(ngModel)]=\"column.visible\" (change)=\"myTable.redraw()\">\r\n          {{configObject.fields | gtProperty:column.objectKey:'name'}}\r\n        </label>\r\n      </div>\r\n      <small class=\"form-text text-muted\"><gt-table-info [genericTable]=\"myTable\"></gt-table-info></small>\r\n      <small class=\"form-text text-muted mb-2\">\r\n        Please note that the mock service currently doesn't support search, this is why this example has a fixed search string (just to show the highlight feature together with lazy load). Do the search server-side and return search terms in your response. Separate multiple search terms with a space [ ] or match whole phrase by putting them within quotes [\"].\r\n      </small>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.selectAllRows()\">Select all</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.deselectAllRows()\">Deselect all</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.expandAllRows()\">Expand all</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.collapseAllRows()\">Collapse all</button>\r\n    </form>\r\n    <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [(gtData)]=\"configObject.data\" [gtInfo]=\"configObject.info\" [gtRowComponent]=\"expandedRow\" (gtEvent)=\"trigger($event)\" [gtOptions]=\"{stack:true, highlightSearch:true, lazyLoad:true, rowSelection:true}\"></generic-table>\r\n    <div class=\"text-center\">\r\n      <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\r\n    </div>\r\n  </div>\r\n  <div class=\"card-footer\" #lazyExample>\r\n  </div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/lazy/lazy.component.ts":
+/***/ 336:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__custom_row_custom_row_component__ = __webpack_require__("../../../../../src/app/custom-row/custom-row.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__ = __webpack_require__("../../../../../@angular-generic-table/core/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__custom_row_custom_row_component__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__ = __webpack_require__(63);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LazyComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4867,7 +3938,7 @@ __decorate([
 LazyComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-lazy',
-        template: __webpack_require__("../../../../../src/app/lazy/lazy.component.html")
+        template: __webpack_require__(458)
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _b || Object])
 ], LazyComponent);
@@ -4877,19 +3948,12 @@ var _a, _b;
 
 /***/ }),
 
-/***/ "../../../../../src/app/localization/localization.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>{{ 'TRANSLATIONS.TITLE' | translate }}</h2>\r\n<p [innerHTML]=\"'TRANSLATIONS.DESCRIPTION' | translate\"></p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">{{'TRANSLATIONS.EXAMPLE' | translate}}</div>\r\n  <div class=\"card-block\" exemplify=\"localizationExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','[gtTexts]','#langSelect','#myTable']\" [source]=\"'child'\" [target]=\"translationsExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'localization.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/localization/localization.component.ts'\r\n  }]\">\r\n    <form class=\"form form-inline mb-4\">\r\n      <label for=\"language\" class=\"form-control-label mr-sm-2\">{{ 'TRANSLATIONS.SELECT' | translate }}</label>\r\n      <select id=\"language\" class=\"form-control form-control-sm mb-2 mr-sm-2 mb-lg-0\" #langSelect (change)=\"translate.use(langSelect.value)\">\r\n        <option *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{ lang }}</option>\r\n      </select>\r\n    </form>\r\n    <ng-template [ngIf]=\"configObject\">\r\n      <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtTexts]=\"translations\" [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\"></generic-table>\r\n      <div class=\"text-center\">\r\n        <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\r\n        <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\r\n      </div>\r\n    </ng-template>\r\n  </div>\r\n  <div class=\"card-footer\" #translationsExample></div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/localization/localization.component.ts":
+/***/ 337:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(339);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LocalizationComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -5363,7 +4427,7 @@ var LocalizationComponent = (function () {
 LocalizationComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-localization',
-        template: __webpack_require__("../../../../../src/app/localization/localization.component.html")
+        template: __webpack_require__(459)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object])
 ], LocalizationComponent);
@@ -5373,83 +4437,15 @@ var _a;
 
 /***/ }),
 
-/***/ "../../../../../src/app/menu/menu.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h5>Angular generic table</h5>\r\n<ul class=\"navbar-nav mb-4\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/start\" routerLinkActive=\"active\">Getting started</a>\r\n  </li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" href=\"https://github.com/hjalmers/angular-generic-table/releases\" target=\"_blank\">Release notes</a>\r\n  </li>\r\n</ul>\r\n<h5>Core</h5>\r\n<ul class=\"navbar-nav mb-4\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/basic\" routerLinkActive=\"active\">Basic example</a>\r\n  </li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/advanced\" routerLinkActive=\"active\">Advanced example</a>\r\n  </li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/column-click\" routerLinkActive=\"active\">Column click example</a>\r\n  </li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/localization\" routerLinkActive=\"active\">Localization</a>\r\n  </li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/lazy\" routerLinkActive=\"active\">Lazy loading</a>\r\n  </li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/inline-editing\" routerLinkActive=\"active\">Inline editing</a>\r\n  </li>\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/custom-column\" routerLinkActive=\"active\">Custom component inside table cell</a>\r\n  </li>\r\n</ul>\r\n<h5>Column settings</h5>\r\n<ul class=\"navbar-nav\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link\" routerLink=\"/column-settings-component\" routerLinkActive=\"active\">Column settings component</a>\r\n  </li>\r\n</ul>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/menu/menu.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/menu/menu.component.ts":
+/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var MenuComponent = (function () {
-    function MenuComponent() {
-    }
-    MenuComponent.prototype.ngOnInit = function () {
-    };
-    return MenuComponent;
-}());
-MenuComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'menu',
-        template: __webpack_require__("../../../../../src/app/menu/menu.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/menu/menu.component.scss")]
-    }),
-    __metadata("design:paramtypes", [])
-], MenuComponent);
-
-//# sourceMappingURL=menu.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/rest/rest.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h2>Advanced</h2>\r\n<p>Fetch data using REST-service, expand rows and display a custom component, use custom functions for rendering, sorting and exporting. Apply predefined filter and simple function for adding new random data to table. To control columns we use the <code><a routerLink=\"/column-settings-component\">ColumnSettingsComponent</a></code>. This example also utilizes column stacking on tablets and mobile devices so resize the browser and see what happens with the layout on smaller screens.</p>\r\n<div class=\"card mb-5\">\r\n  <div class=\"card-header\">Example</div>\r\n  <div class=\"card-block\" exemplify=\"restExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','#myTable','ngModel','[ngClass]','#columnSettings','gtEvent']\" [source]=\"'child'\" [target]=\"restExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\r\n    name:'app.module.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\r\n  },{\r\n    name:'rest.component.ts',\r\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/rest/rest.component.ts'\r\n  }]\">\r\n    <form class=\"form form-inline mb-4\">\r\n      <label for=\"rows\" class=\"form-control-label mr-sm-2\">Rows</label>\r\n      <select id=\"rows\" class=\"form-control form-control-sm mb-2 mr-sm-2 mb-lg-0\" #rowLength (change)=\"myTable.changeRowLength(rowLength.value)\">\r\n        <option value=10>10</option>\r\n        <option value=25>25</option>\r\n        <option value=50>50</option>\r\n        <option value=100>100</option>\r\n      </select>\r\n      <input class=\"form-control form-control-sm mb-2 mr-sm-2 mb-lg-0\" #search (keyup)=\"myTable.gtSearch(search.value)\" placeholder=\"Search\"/>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"applyFilter();\">Apply predefined filter</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.gtClearFilter()\">Remove filter</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"addData()\">Add data</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"showColumnControls = !showColumnControls\">Toggle columns</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.exportCSV()\">Export to CSV</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.selectAllRows()\">Select all</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.deselectAllRows()\">Deselect all</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.expandAllRows()\">Expand all</button>\r\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.collapseAllRows()\">Collapse all</button>\r\n      <!--<button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"getData()\">Refresh data</button>-->\r\n      <small class=\"form-text text-muted col-12 col-xl-auto mb-2 mt-lg-2 my-xl-auto row\"><gt-table-info [genericTable]=\"myTable\"></gt-table-info> Number of selected rows: {{selectedRows}}</small>\r\n      <div *ngIf=\"showColumnControls\" class=\"col-12 row mt-xl-2\">\r\n        <label class=\"form-control-label mr-sm-2\">Visible columns:</label>\r\n        <div class=\"form-check form-check-inline ml-0 ml-sm-2\" *ngFor=\"let column of configObject.settings\">\r\n          <label class=\"form-check-label\">\r\n            <input type=\"checkbox\" name=\"{{column.objectKey}}\" class=\"form-check-input\" [(ngModel)]=\"column.visible\" (change)=\"myTable.redraw()\">\r\n            {{configObject.fields | gtProperty:column.objectKey:'name'}}\r\n          </label>\r\n        </div>\r\n      </div>\r\n    </form>\r\n    <button class=\"btn-link\" (click)=\"columnSettings.toggleColumnSettings()\"> {{columnSettings.active ? 'Hide column settings':'Show column settings'}}</button>\r\n    <gt-column-settings [genericTable]=\"myTable\" #columnSettings>\r\n      <div class=\"table-responsive\">\r\n        <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\" [gtRowComponent]=\"expandedRow\" [gtOptions]=\"{stack:true, highlightSearch:true, rowSelection:true}\" (gtEvent)=\"trigger($event)\"></generic-table>\r\n      </div>\r\n      <div class=\"text-center\">\r\n        <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\r\n      </div>\r\n    </gt-column-settings>\r\n  </div>\r\n  <div class=\"card-footer\" #restExample>\r\n  </div>\r\n</div>\r\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/rest/rest.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__custom_row_custom_row_component__ = __webpack_require__("../../../../../src/app/custom-row/custom-row.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__ = __webpack_require__("../../../../../@angular-generic-table/core/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__custom_row_custom_row_component__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RestComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -5477,7 +4473,7 @@ var RestComponent = (function () {
         this.getData = function () {
             var _this = this;
             // tell generic table instance that we're loading data
-            this.myTable.loading = true;
+            this.myTable ? this.myTable.loading = true : '';
             this.http.get(this.url)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (res) {
@@ -5600,7 +4596,7 @@ __decorate([
 RestComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-rest',
-        template: __webpack_require__("../../../../../src/app/rest/rest.component.html")
+        template: __webpack_require__(461)
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _b || Object])
 ], RestComponent);
@@ -5610,7 +4606,1669 @@ var _a, _b;
 
 /***/ }),
 
-/***/ "../../../../../src/environments/environment.ts":
+/***/ 392:
+/***/ (function(module, exports) {
+
+function webpackEmptyContext(req) {
+	throw new Error("Cannot find module '" + req + "'.");
+}
+webpackEmptyContext.keys = function() { return []; };
+webpackEmptyContext.resolve = webpackEmptyContext;
+module.exports = webpackEmptyContext;
+webpackEmptyContext.id = 392;
+
+
+/***/ }),
+
+/***/ 393:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(146);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(428);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(425);
+
+
+
+
+
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["enableProdMode"])();
+}
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_4__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 401:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_dragula__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ng2_dragula__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ColumnSettingsModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var ColumnSettingsModule = (function () {
+    function ColumnSettingsModule() {
+    }
+    return ColumnSettingsModule;
+}());
+ColumnSettingsModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_generic_table_core__["a" /* GenericTableModule */],
+            __WEBPACK_IMPORTED_MODULE_4_ng2_dragula__["DragulaModule"]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["a" /* GtColumnSettingsComponent */],
+            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["b" /* GtColumnPipe */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["a" /* GtColumnSettingsComponent */],
+            __WEBPACK_IMPORTED_MODULE_2__components_gt_column_settings_component__["b" /* GtColumnPipe */]
+        ]
+    })
+], ColumnSettingsModule);
+
+//# sourceMappingURL=column-settings.module.js.map
+
+/***/ }),
+
+/***/ 402:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return GtColumnPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtColumnSettingsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var GtColumnPipe = (function () {
+    function GtColumnPipe() {
+    }
+    // TODO: move to helper functions
+    /** Sort by column order */
+    GtColumnPipe.prototype.getColumnOrder = function (a, b) {
+        if (a.columnOrder < b.columnOrder)
+            return -1;
+        if (a.columnOrder > b.columnOrder || typeof a.columnOrder === 'undefined')
+            return 1;
+        return 0;
+    };
+    ;
+    /** return enabled columns */
+    GtColumnPipe.prototype.getEnabled = function (column) {
+        return column.enabled !== false ? column : null;
+    };
+    GtColumnPipe.prototype.transform = function (settings) {
+        return settings.filter(this.getEnabled).sort(this.getColumnOrder);
+    };
+    return GtColumnPipe;
+}());
+GtColumnPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtColumn'
+    })
+], GtColumnPipe);
+
+var GtColumnSettingsComponent = (function () {
+    function GtColumnSettingsComponent(dragulaService, changeDetectorRef) {
+        var _this = this;
+        this.dragulaService = dragulaService;
+        this.changeDetectorRef = changeDetectorRef;
+        this.gtHeaderClasses = 'px-3 pt-3 pb-2 table-bordered border-left-0 border-right-0 border-bottom-0 alert-info';
+        this.gtWrapperClasses = 'px-3 pb-3 table-bordered border-left-0 border-right-0 border-top-0 alert-info';
+        this.overlay = true;
+        this.gtDefaultTexts = {
+            title: 'Columns',
+            help: 'Double click to toggle visibility, drag and drop to reorder.'
+        };
+        this.gtTexts = this.gtDefaultTexts;
+        this.active = false;
+        this.reordered = false;
+        /**
+         *  Extend object function.
+         */
+        this.extend = function (a, b) {
+            for (var key in b)
+                if (b.hasOwnProperty(key))
+                    a[key] = b[key];
+            return a;
+        };
+        dragulaService.drop.subscribe(function (value) {
+            if (value[0] === _this.bagId) {
+                _this._onDrop(value.slice(1));
+            }
+        });
+    }
+    Object.defineProperty(GtColumnSettingsComponent.prototype, "genericTable", {
+        get: function () {
+            return this._genericTable;
+        },
+        set: function (value) {
+            this._genericTable = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+   * Check offset height on window resize.
+   */
+    GtColumnSettingsComponent.prototype.onResize = function () {
+        this.offset = this._getTableHeadHeight();
+        this.heightAdjust = this._getColumnSettingsHeaderHeight();
+    };
+    GtColumnSettingsComponent.prototype.ngOnInit = function () {
+        this.bagId = this.generateId();
+        // setup texts
+        this.gtTexts = this.extend(this.gtDefaultTexts, this.gtTexts);
+    };
+    /**
+     * Toggle column settings visibility.
+     */
+    GtColumnSettingsComponent.prototype.toggleColumnSettings = function () {
+        var _this = this;
+        this.active = !this.active;
+        if (this.active) {
+            this.offset = this._getTableHeadHeight();
+            // check and adjust height offset
+            setTimeout(function () {
+                _this.heightAdjust = _this._getColumnSettingsHeaderHeight();
+            }, 0);
+        }
+    };
+    /**
+     * Toggle column visibility.
+     * @param {object} column - column object.
+     */
+    GtColumnSettingsComponent.prototype.toggleColumnVisibility = function (column) {
+        var _this = this;
+        // toggle column visibility
+        column.visible = typeof column.visible === 'undefined' ? false : !column.visible;
+        // redraw table
+        this._genericTable.redraw();
+        // check and reset offset
+        setTimeout(function () {
+            _this.offset = _this._getTableHeadHeight();
+        }, 0);
+    };
+    /**
+     * Order table by object key.
+     * @param {string} args - name of key to sort on.
+     */
+    GtColumnSettingsComponent.prototype._onDrop = function (args) {
+        this.reordered = true;
+        var e = args[0], target = args[1];
+        var order = {};
+        for (var i = 0; i < target.children.length; i++) {
+            order[target.children[i].getAttribute('data-object-key')] = i;
+        }
+        for (var i = 0; i < this._genericTable.gtSettings.length; i++) {
+            this._genericTable.gtSettings[i].columnOrder = order[this._genericTable.gtSettings[i].objectKey];
+        }
+        // reset array to trigger change detection
+        this._genericTable.gtSettings = this._genericTable.gtSettings.slice();
+        this.changeDetectorRef.markForCheck();
+        this._genericTable.redraw();
+    };
+    /**
+     * Get height of table head element ie. first row containing table headers.
+     * @returns {string} offset height for table header in px.
+     */
+    GtColumnSettingsComponent.prototype._getTableHeadHeight = function () {
+        try {
+            if (this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.tagName === 'THEAD') {
+                return this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.offsetHeight + 'px';
+            }
+            if (this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.tagName === 'THEAD') {
+                return this.elementView.elementRef.nativeElement.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.offsetHeight + 'px';
+            }
+            return '0px';
+        }
+        catch (error) {
+            return '0px';
+        }
+    };
+    /**
+     * Get height of table head element ie. first row containing table headers.
+     * @returns {string} offset height for table header in px.
+     */
+    GtColumnSettingsComponent.prototype._getColumnSettingsHeaderHeight = function () {
+        try {
+            return this.gtColumnSettingsHeader.nativeElement.offsetHeight + 'px';
+        }
+        catch (error) {
+            return '0px';
+        }
+    };
+    /** generate a unique id for dragula instance i.e. a unique bag name*/
+    GtColumnSettingsComponent.prototype.generateId = function () {
+        var d = new Date().getTime();
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = (d + Math.random() * 16) % 16 | 0;
+            d = Math.floor(d / 16);
+            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+    };
+    return GtColumnSettingsComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('window:resize', []),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], GtColumnSettingsComponent.prototype, "onResize", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */]) === "function" && _a || Object),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_generic_table_core__["b" /* GenericTableComponent */]) === "function" && _b || Object])
+], GtColumnSettingsComponent.prototype, "genericTable", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('genericTableElement'),
+    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]) === "function" && _c || Object)
+], GtColumnSettingsComponent.prototype, "elementView", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('gtColumnSettingsHeader'),
+    __metadata("design:type", typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _d || Object)
+], GtColumnSettingsComponent.prototype, "gtColumnSettingsHeader", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], GtColumnSettingsComponent.prototype, "gtHeaderClasses", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], GtColumnSettingsComponent.prototype, "gtWrapperClasses", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], GtColumnSettingsComponent.prototype, "overlay", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["TemplateRef"]) === "function" && _e || Object)
+], GtColumnSettingsComponent.prototype, "gtColumnItem", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__["GtColumnSettingsTexts"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__interfaces_gt_column_settings_texts__["GtColumnSettingsTexts"]) === "function" && _f || Object)
+], GtColumnSettingsComponent.prototype, "gtTexts", void 0);
+GtColumnSettingsComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'gt-column-settings',
+        template: "\n    <ng-template #columnItem let-column let-index=\"index\">\n      <span class=\"badge badge-default\">{{index}}</span>\n      <span (dblclick)=\"toggleColumnVisibility(column)\" class=\"badge\" [ngClass]=\"{'badge-success':column.visible !== false, 'badge-danger':column.visible === false}\">{{genericTable.gtFields | gtProperty:column.objectKey:'name'}}</span>\n    </ng-template>\n    <div class=\"gt-column-settings\">\n      <div class=\"gt-column-settings-panel\"  *ngIf=\"active\" [style.padding-top]=\"offset\" [style.height]=\"'calc(100% - '+offset+')'\">\n        <div #gtColumnSettingsHeader class=\"gt-column-settings-header border-bottom-0\" [ngClass]=\"gtHeaderClasses\">\n          <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"toggleColumnSettings()\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n          <h6 class=\"gt-column-settings-title\" *ngIf=\"gtTexts.title\">{{gtTexts.title}}</h6>\n          <small class=\"gt-column-settings-help form-text text-muted\" *ngIf=\"gtTexts.help\">{{gtTexts.help}}</small>\n        </div>\n        <div class=\"gt-column-settings-item-wrapper\" [ngClass]=\"gtWrapperClasses\" [dragula]='bagId'  data-visible=\"true\" [style.max-height]=\"'calc(100% - '+heightAdjust+')'\">\n          <div class=\"gt-column-settings-item pr-0 pr-sm-4\" *ngFor=\"let i = index;let column of genericTable.gtSettings | gtColumn\" [attr.data-object-key]=\"column.objectKey\">\n            <ng-template [ngTemplateOutlet]=\"gtColumnItem ? gtColumnItem:columnItem\" [ngOutletContext]=\"{$implicit: column,index: this.reordered ? column.columnOrder+1:i+1, name: (genericTable.gtFields | gtProperty:column.objectKey:'name')}\"></ng-template>\n          </div>\n        </div>\n        <div class=\"gt-overlay\" *ngIf=\"active && overlay\" (click)=\"toggleColumnSettings()\" [style.height]=\"'calc(100% - -'+offset+')'\"></div>\n      </div>\n      <ng-template #genericTableElement [ngIf]=\"genericTable\">\n        <ng-content></ng-content>\n      </ng-template>\n    </div>\n  "
+    }),
+    __metadata("design:paramtypes", [typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__["DragulaService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ng2_dragula__["DragulaService"]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _h || Object])
+], GtColumnSettingsComponent);
+
+var _a, _b, _c, _d, _e, _f, _g, _h;
+//# sourceMappingURL=gt-column-settings.component.js.map
+
+/***/ }),
+
+/***/ 403:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__column_settings_module__ = __webpack_require__(401);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__column_settings_module__["a"]; });
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 404:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=gt-column-settings-texts.js.map
+
+/***/ }),
+
+/***/ 405:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tether__ = __webpack_require__(714);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_tether___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_tether__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtDropdownComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GtDropdownComponent = (function () {
+    function GtDropdownComponent(renderer) {
+        this.renderer = renderer;
+        this.selectedChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.active = false; // is dropdown active or not
+        this.state = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"](); // current state of dropdown
+    }
+    Object.defineProperty(GtDropdownComponent.prototype, "selected", {
+        get: function () {
+            return this._selected;
+        },
+        set: function (selection) {
+            this._selected = selection;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    GtDropdownComponent.prototype.select = function (option) {
+        this.active = false;
+        this.state.next(this.active);
+        if (this._selected !== option) {
+            this.selectedChange.emit(option);
+        }
+    };
+    GtDropdownComponent.prototype.toggleDropdown = function () {
+        var _this = this;
+        this.active = !this.active;
+        setTimeout(function () { _this.state.next(_this.active); }, 0);
+    };
+    GtDropdownComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.state.subscribe(function (state) {
+            if (state) {
+                _this.tether = new __WEBPACK_IMPORTED_MODULE_2_tether__({
+                    element: '.dropdown-menu',
+                    target: '.dropdown.gt-dropdown.show',
+                    attachment: 'top left',
+                    targetAttachment: 'bottom left',
+                    constraints: [{
+                            to: 'window',
+                            attachment: 'together'
+                        }]
+                });
+                _this.tether.position();
+                // set up click listener and listen for click outside dropdown
+                _this.clickListener = _this.renderer.listen('document', 'click', function (event) {
+                    _this.active = false;
+                    _this.state.next(_this.active);
+                });
+                // set up keyboard listener and listen for escape key up
+                _this.keyupListener = _this.renderer.listen('document', 'keyup', function (event) {
+                    switch (event.key) {
+                        case 'Escape':
+                            _this.active = false;
+                            _this.state.next(_this.active);
+                            break;
+                    }
+                });
+            }
+            else {
+                _this.tether.destroy();
+                _this.removeListeners();
+            }
+        });
+    };
+    GtDropdownComponent.prototype.ngOnDestroy = function () {
+        this.removeListeners();
+    };
+    GtDropdownComponent.prototype.removeListeners = function () {
+        if (this.clickListener) {
+            this.clickListener();
+        }
+        if (this.keyupListener) {
+            this.keyupListener();
+        }
+    };
+    return GtDropdownComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], GtDropdownComponent.prototype, "selected", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Object)
+], GtDropdownComponent.prototype, "options", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _a || Object)
+], GtDropdownComponent.prototype, "selectedChange", void 0);
+GtDropdownComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'gt-dropdown',
+        template: "\n    <div class=\"dropdown gt-dropdown\" [ngClass]=\"{'show':active}\">\n      <div class=\"dropdown-toggle\" (click)=\"toggleDropdown()\" [attr.aria-expanded]=\"active\">{{selected}}</div>\n      <div class=\"gt-dropdown-menu dropdown-menu\" *ngIf=\"active\">\n        <button *ngFor=\"let option of options;\" class=\"dropdown-item\" (click)=\"select(option)\" [ngClass]=\"{'active':option === selected}\">{{option}}</button>\n      </div>\n    </div>\n  ",
+        styles: ["\n    .gt-dropdown .dropdown-toggle {\n      cursor: pointer;\n    }\n    .gt-dropdown .dropdown-toggle::after {\n      transition: opacity 0.4s ease-in-out;\n      opacity: 0;\n    }\n    .gt-dropdown .dropdown-toggle:hover::after {\n      opacity: 1;\n    }\n  "]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"]) === "function" && _b || Object])
+], GtDropdownComponent);
+
+var _a, _b;
+//# sourceMappingURL=gt-dropdown.component.js.map
+
+/***/ }),
+
+/***/ 406:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_generic_table_component__ = __webpack_require__(132);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pipes_gt_render_pipe__ = __webpack_require__(418);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pipes_gt_visible_pipe__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_dash_case_pipe__ = __webpack_require__(412);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_gt_property_pipe__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_gt_chunk_pipe__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pipes_gt_filter_pipe__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pipes_gt_order_by_pipe__ = __webpack_require__(416);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_common__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_gt_expanding_row_component__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_gt_search_pipe__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__directives_component_anchor_directive__ = __webpack_require__(407);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_gt_custom_component_factory__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pipes_gt_meta_pipe__ = __webpack_require__(415);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_forms__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_gt_dropdown_component__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pipes_gt_totals_pipe__ = __webpack_require__(421);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pipes_gt_totals_position_pipe__ = __webpack_require__(420);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GenericTableModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var GenericTableModule = (function () {
+    function GenericTableModule() {
+    }
+    return GenericTableModule;
+}());
+GenericTableModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__angular_core__["NgModule"])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_12__directives_component_anchor_directive__["a" /* ComponentAnchorDirective */],
+            __WEBPACK_IMPORTED_MODULE_0__components_generic_table_component__["a" /* GenericTableComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__["a" /* GtPaginationComponent */],
+            __WEBPACK_IMPORTED_MODULE_2__pipes_gt_visible_pipe__["a" /* GtVisiblePipe */],
+            __WEBPACK_IMPORTED_MODULE_1__pipes_gt_render_pipe__["a" /* GtRenderPipe */],
+            __WEBPACK_IMPORTED_MODULE_3__pipes_dash_case_pipe__["a" /* DashCasePipe */],
+            __WEBPACK_IMPORTED_MODULE_4__pipes_gt_property_pipe__["a" /* GtPropertyPipe */],
+            __WEBPACK_IMPORTED_MODULE_5__pipes_gt_chunk_pipe__["a" /* GtChunkPipe */],
+            __WEBPACK_IMPORTED_MODULE_6__pipes_gt_filter_pipe__["a" /* GtFilterPipe */],
+            __WEBPACK_IMPORTED_MODULE_7__pipes_gt_order_by_pipe__["a" /* GtOrderByPipe */],
+            __WEBPACK_IMPORTED_MODULE_10__components_gt_expanding_row_component__["a" /* GtExpandingRowComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_gt_custom_component_factory__["a" /* GtCustomComponentFactory */],
+            __WEBPACK_IMPORTED_MODULE_11__pipes_gt_search_pipe__["a" /* GtSearchPipe */],
+            __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__["b" /* PaginationPipe */],
+            __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__["a" /* GtTableInfoComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__["b" /* TableInfoPipe */],
+            __WEBPACK_IMPORTED_MODULE_16__pipes_gt_meta_pipe__["a" /* GtMetaPipe */],
+            __WEBPACK_IMPORTED_MODULE_19__pipes_gt_totals_pipe__["a" /* GtTotalsPipe */],
+            __WEBPACK_IMPORTED_MODULE_20__pipes_gt_totals_position_pipe__["a" /* GtTotalsPositionPipe */],
+            __WEBPACK_IMPORTED_MODULE_18__components_gt_dropdown_component__["a" /* GtDropdownComponent */]
+        ],
+        imports: [__WEBPACK_IMPORTED_MODULE_9__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_17__angular_forms__["a" /* FormsModule */]],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_0__components_generic_table_component__["a" /* GenericTableComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_gt_pagination_component__["a" /* GtPaginationComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_gt_table_info_component__["a" /* GtTableInfoComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__pipes_gt_property_pipe__["a" /* GtPropertyPipe */],
+            __WEBPACK_IMPORTED_MODULE_10__components_gt_expanding_row_component__["a" /* GtExpandingRowComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_gt_dropdown_component__["a" /* GtDropdownComponent */]
+        ],
+        entryComponents: [],
+        providers: [],
+        bootstrap: [] //,
+        //schemas:[CUSTOM_ELEMENTS_SCHEMA]
+    })
+], GenericTableModule);
+
+//# sourceMappingURL=core.module.js.map
+
+/***/ }),
+
+/***/ 407:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentAnchorDirective; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ComponentAnchorDirective = (function () {
+    function ComponentAnchorDirective(componentFactoryResolver, viewContainer) {
+        this.componentFactoryResolver = componentFactoryResolver;
+        this.viewContainer = viewContainer;
+        this.instance = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+    }
+    ComponentAnchorDirective.prototype.ngOnInit = function () {
+        var factory = this.componentFactoryResolver
+            .resolveComponentFactory(this.ctor);
+        var component = this.viewContainer
+            .createComponent(factory, 0, this.injector);
+        this.instance.emit(component.instance);
+    };
+    return ComponentAnchorDirective;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Type"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Type"]) === "function" && _a || Object)
+], ComponentAnchorDirective.prototype, "ctor", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Injector"]) === "function" && _b || Object)
+], ComponentAnchorDirective.prototype, "injector", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]) === "function" && _c || Object)
+], ComponentAnchorDirective.prototype, "instance", void 0);
+ComponentAnchorDirective = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+        selector: '[appComponentAnchor]'
+    }),
+    __metadata("design:paramtypes", [typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ComponentFactoryResolver"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewContainerRef"]) === "function" && _e || Object])
+], ComponentAnchorDirective);
+
+var _a, _b, _c, _d, _e;
+//# sourceMappingURL=component-anchor.directive.js.map
+
+/***/ }),
+
+/***/ 408:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=gt-config-field.js.map
+
+/***/ }),
+
+/***/ 409:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=gt-config-setting.js.map
+
+/***/ }),
+
+/***/ 410:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=gt-config.js.map
+
+/***/ }),
+
+/***/ 411:
+/***/ (function(module, exports) {
+
+//# sourceMappingURL=gt-row.js.map
+
+/***/ }),
+
+/***/ 412:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashCasePipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var DashCasePipe = (function () {
+    function DashCasePipe() {
+    }
+    DashCasePipe.prototype.transform = function (string) {
+        return string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+    };
+    return DashCasePipe;
+}());
+DashCasePipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'dashCase'
+    })
+], DashCasePipe);
+
+//# sourceMappingURL=dash-case.pipe.js.map
+
+/***/ }),
+
+/***/ 413:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtChunkPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtChunkPipe = (function () {
+    function GtChunkPipe() {
+    }
+    GtChunkPipe.prototype.transform = function (array, gtInfo, chunkSize, page, refreshPageArray, refreshData, gtEvent, data) {
+        if (!Array.isArray(array))
+            return array;
+        data.exportData = array; // store data for export
+        var pages = [];
+        for (var i = 0, len = array.length; i < len; i += chunkSize)
+            pages.push(array.slice(i, i + chunkSize));
+        gtInfo.pageTotal = pages.length;
+        setTimeout(function () { return gtEvent.emit({
+            name: 'gt-info',
+            value: gtInfo
+        }); }, 0);
+        return pages[page - 1];
+    };
+    return GtChunkPipe;
+}());
+GtChunkPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtChunk'
+    })
+], GtChunkPipe);
+
+//# sourceMappingURL=gt-chunk.pipe.js.map
+
+/***/ }),
+
+/***/ 414:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtFilterPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtFilterPipe = (function () {
+    function GtFilterPipe() {
+    }
+    //@Output() filterInfo = new EventEmitter();
+    GtFilterPipe.prototype.transform = function (allRows, filterBy, gtInfo, refreshFilter, refreshData) {
+        //console.log(allRows,filterBy);
+        gtInfo.recordsAll = allRows.length;
+        if (!Array.isArray(allRows) || !filterBy) {
+            //gtInfo.filtered = false;
+            var length = allRows === null ? 0 : allRows.length;
+            gtInfo.recordsAfterFilter = length;
+            return allRows;
+        }
+        var output = [];
+        for (var i = 0; i < allRows.length; i++) {
+            var rowObject = allRows[i];
+            var match = true;
+            for (var property in filterBy) {
+                if (filterBy.hasOwnProperty(property)) {
+                    //console.log(property);
+                    //console.log(filter[property].indexOf(obj[property]));
+                    if (filterBy[property].indexOf(rowObject[property]) === -1) {
+                        match = false;
+                    }
+                }
+            }
+            if (match) {
+                output.push(rowObject);
+            }
+        }
+        gtInfo.recordsAfterFilter = output.length; //.emit(output.length);
+        return output;
+    };
+    return GtFilterPipe;
+}());
+GtFilterPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtFilter'
+    })
+], GtFilterPipe);
+
+//# sourceMappingURL=gt-filter.pipe.js.map
+
+/***/ }),
+
+/***/ 415:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtMetaPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtMetaPipe = (function () {
+    function GtMetaPipe() {
+    }
+    GtMetaPipe.prototype.transform = function (allRows, page, recordLength, dataLength, metaData) {
+        for (var i = 0; i < allRows.length; i++) {
+            if (!allRows[i].$$gtRowId) {
+                allRows[i].$$gtRowId = page ? (page * recordLength + i) : i;
+            }
+        }
+        return allRows;
+    };
+    return GtMetaPipe;
+}());
+GtMetaPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtMeta'
+    })
+], GtMetaPipe);
+
+//# sourceMappingURL=gt-meta.pipe.js.map
+
+/***/ }),
+
+/***/ 416:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtOrderByPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtOrderByPipe = GtOrderByPipe_1 = (function () {
+    function GtOrderByPipe() {
+        /** Return property */
+        this.getProperty = function (array, key) {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i].objectKey === key) {
+                    return array[i];
+                }
+            }
+        };
+    }
+    /** Return sort function */
+    GtOrderByPipe.prototype.getSortFunction = function (field) {
+        if (typeof field.sort === 'function') {
+            return field.sort;
+        }
+        else if (typeof field.value === 'function') {
+            return field.value;
+        }
+        else {
+            return false;
+        }
+    };
+    GtOrderByPipe._orderByComparator = function (a, b) {
+        if ((isNaN(parseFloat(a)) || !isFinite(a)) || (isNaN(parseFloat(b)) || !isFinite(b))) {
+            if (b === null || typeof b === 'undefined' && (a !== null && typeof a !== 'undefined'))
+                return 1;
+            if (a === null || typeof a === 'undefined' && (b !== null && typeof b !== 'undefined'))
+                return -1;
+            //Isn't a number so lowercase the string to properly compare
+            try {
+                if (a.toLowerCase() < b.toLowerCase())
+                    return -1;
+                if (a.toLowerCase() > b.toLowerCase())
+                    return 1;
+            }
+            catch (error) {
+                return 0;
+            }
+        }
+        else {
+            //Parse strings as numbers to compare properly
+            if (parseFloat(a) < parseFloat(b))
+                return -1;
+            if (parseFloat(a) > parseFloat(b))
+                return 1;
+        }
+        return 0; //equal each other
+    };
+    GtOrderByPipe.prototype.transform = function (input, sortByProperties, fields, refreshSorting, refreshData) {
+        var _this = this;
+        if (!Array.isArray(input) || input === null)
+            return input;
+        if (!Array.isArray(sortByProperties) || (Array.isArray(sortByProperties) && sortByProperties.length == 1)) {
+            var propertyToCheck = sortByProperties[0];
+            var desc_1 = propertyToCheck.substr(0, 1) == '-';
+            //Basic array
+            if (!propertyToCheck || propertyToCheck == '-' || propertyToCheck == '+') {
+                return !desc_1 ? input.sort() : input.sort().reverse();
+            }
+            else {
+                var property_1 = propertyToCheck.substr(0, 1) == '+' || propertyToCheck.substr(0, 1) == '-'
+                    ? propertyToCheck.substr(1)
+                    : propertyToCheck;
+                // check if custom sort function is defined
+                var sortFunction_1 = this.getSortFunction(this.getProperty(fields, property_1));
+                return input.sort(function (a, b) {
+                    // use custom sort function if one is defined
+                    var propertyA = sortFunction_1 === false ? a[property_1] : sortFunction_1(a);
+                    var propertyB = sortFunction_1 === false ? b[property_1] : sortFunction_1(b);
+                    // if both values are undefined...
+                    if (typeof propertyA === 'undefined' && typeof propertyB === 'undefined') {
+                        // ...skip comparison
+                        return;
+                    }
+                    return !desc_1 ? GtOrderByPipe_1._orderByComparator(propertyA, propertyB) : -GtOrderByPipe_1._orderByComparator(propertyA, propertyB);
+                });
+            }
+        }
+        else {
+            //Loop over property of the array in order and sort
+            return input.sort(function (a, b) {
+                //console.log('multiple');
+                for (var i = 0; i < sortByProperties.length; i++) {
+                    var desc = sortByProperties[i].substr(0, 1) == '-';
+                    var property = sortByProperties[i].substr(0, 1) == '+' || sortByProperties[i].substr(0, 1) == '-'
+                        ? sortByProperties[i].substr(1)
+                        : sortByProperties[i];
+                    //console.log(property);
+                    // check if custom sort function is defined
+                    var sortFunction = _this.getSortFunction(_this.getProperty(fields, property));
+                    // use custom sort function if one is defined
+                    var propertyA = sortFunction === false ? a[property] : sortFunction(a);
+                    var propertyB = sortFunction === false ? b[property] : sortFunction(b);
+                    var comparison = !desc ? GtOrderByPipe_1._orderByComparator(propertyA, propertyB) : -GtOrderByPipe_1._orderByComparator(propertyA, propertyB);
+                    //Don't return 0 yet in case of needing to sort by next property
+                    if (comparison != 0)
+                        return comparison;
+                }
+                return 0; //equal each other
+            });
+        }
+    };
+    return GtOrderByPipe;
+}());
+GtOrderByPipe = GtOrderByPipe_1 = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtOrderBy'
+    })
+], GtOrderByPipe);
+
+var GtOrderByPipe_1;
+//# sourceMappingURL=gt-order-by.pipe.js.map
+
+/***/ }),
+
+/***/ 417:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtPropertyPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtPropertyPipe = (function () {
+    function GtPropertyPipe() {
+    }
+    GtPropertyPipe.prototype.transform = function (config, objectKey, property, refresh) {
+        var output = null;
+        try {
+            for (var i = 0; i < config.length; i++) {
+                if (config[i].objectKey === objectKey) {
+                    output = config[i][property];
+                }
+            }
+        }
+        catch (error) {
+            console.log('cannot read property: "' + property + '" on missing key: "' + objectKey + '" in config.', error);
+        }
+        return output;
+    };
+    return GtPropertyPipe;
+}());
+GtPropertyPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtProperty'
+    })
+], GtPropertyPipe);
+
+//# sourceMappingURL=gt-property.pipe.js.map
+
+/***/ }),
+
+/***/ 418:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(83);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtRenderPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var GtRenderPipe = (function () {
+    function GtRenderPipe(sanitizer) {
+        this.sanitizer = sanitizer;
+        // TODO: move to helper functions
+        /** Sort by column order */
+        this.getColumnOrder = function (a, b) {
+            if (a.columnOrder < b.columnOrder)
+                return -1;
+            if (a.columnOrder > b.columnOrder || typeof a.columnOrder === 'undefined')
+                return 1;
+            return 0;
+        };
+        /** Sort by length */
+        this.getOrderByLength = function (a, b) {
+            return b.length - a.length;
+        };
+        /** Return property */
+        this.getProperty = function (array, key) {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i].objectKey === key) {
+                    return array[i];
+                }
+            }
+        };
+        this.sanitizer = sanitizer;
+    }
+    GtRenderPipe.prototype.highlight = function (haystack, needles) {
+        var haystackAlwaysString = haystack + '';
+        var highlightedText = haystackAlwaysString; // fallback
+        var searchPattern;
+        try {
+            searchPattern = new RegExp('(' +
+                needles.toLowerCase()
+                    .match(/".*?"|[^ ]+/g) // extract words
+                    .map(function (needle) { return needle.replace(/"(.*?)"/, '$1'); } // strip away '"'
+                )
+                    .join('|') +
+                ')', 'ig');
+        }
+        catch (error) {
+            return this.sanitizer
+                .bypassSecurityTrustHtml(highlightedText);
+        }
+        var containsTagPattern = /(<.*?>)(.*)(<\/.*?>)/ig;
+        var containsTagMatches = containsTagPattern.exec(haystackAlwaysString);
+        if (containsTagMatches) {
+            highlightedText =
+                containsTagMatches[1] +
+                    containsTagMatches[2]
+                        .replace(searchPattern, '<span class="gt-highlight-search">$1</span>') +
+                    containsTagMatches[3];
+        }
+        else {
+            highlightedText =
+                haystackAlwaysString
+                    .replace(searchPattern, '<span class="gt-highlight-search">$1</span>');
+        }
+        return this.sanitizer
+            .bypassSecurityTrustHtml(highlightedText);
+    };
+    ;
+    GtRenderPipe.prototype.transform = function (row, settings, fields, updated, loading, highlight, searchString) {
+        //let arr = [{"temp":123,"name":"happy"},{"temp":456,"name":"dfgdfg"},{"temp":789,"name":"asdasd"}];
+        //console.log(arr,arr.map(function(item){return item.temp}));
+        //console.log(settings.map('objectKey'));
+        if (highlight === void 0) { highlight = false; }
+        //console.log('render');
+        var columns = [];
+        for (var i = 0; i < settings.length; i++) {
+            if (settings[i].visible !== false && settings[i].enabled !== false) {
+                columns.push(settings[i].objectKey);
+            }
+        }
+        for (var i = 0; i < fields.length; i++) {
+            //console.log(!row[fields[i].objectKey]);
+            if (fields[i].value && typeof fields[i].value === 'function' && !row[fields[i].objectKey]) {
+                row[fields[i].objectKey] = loading ? '' : fields[i].value(row);
+            }
+        }
+        //console.log(row);
+        var keys = [];
+        for (var key in row) {
+            //console.log(key);
+            if (columns.indexOf(key) !== -1) {
+                var fieldSetting = void 0;
+                for (var i = 0; i < fields.length; i++) {
+                    if (fields[i].objectKey === key) {
+                        fieldSetting = fields[i];
+                        //console.log(fieldSetting);
+                    }
+                }
+                var columnObject = {
+                    objectKey: key,
+                    sortValue: row[key],
+                    columnComponent: fieldSetting.columnComponent
+                };
+                if (loading) {
+                    columnObject.renderValue = row[key] !== null ? row[key] : '';
+                }
+                else if (highlight && searchString && this.getProperty(settings, key).search !== false) {
+                    columnObject.renderValue = fieldSetting.render && typeof fieldSetting.render === 'function' ? this.highlight(fieldSetting.render(row), searchString) : this.highlight(row[key] !== null ? row[key] : '', searchString);
+                }
+                else {
+                    columnObject.renderValue = fieldSetting.render && typeof fieldSetting.render === 'function' ? this.sanitizer.bypassSecurityTrustHtml(fieldSetting.render(row)) : row[key] !== null ? row[key] : '';
+                }
+                if (fieldSetting.click && typeof fieldSetting.click === 'function') {
+                    columnObject.click = fieldSetting.click;
+                }
+                if (fieldSetting.expand) {
+                    columnObject.expand = fieldSetting.expand;
+                }
+                keys.push(columnObject);
+            }
+        }
+        keys.sort(function (a, b) {
+            return columns.indexOf(a.objectKey) < columns.indexOf(b.objectKey) ? -1 : 1;
+        });
+        return keys;
+    };
+    return GtRenderPipe;
+}());
+GtRenderPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtRender'
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]) === "function" && _a || Object])
+], GtRenderPipe);
+
+var _a;
+//# sourceMappingURL=gt-render.pipe.js.map
+
+/***/ }),
+
+/***/ 419:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtSearchPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtSearchPipe = (function () {
+    function GtSearchPipe() {
+        /** Return property */
+        this.getProperty = function (array, key) {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i].objectKey === key) {
+                    return array[i];
+                }
+            }
+        };
+    }
+    GtSearchPipe.prototype.transform = function (allRows, searchTerms, gtInfo, settings, fields, refreshData) {
+        //  if no search terms are defined...
+        if (!searchTerms || searchTerms.replace(/"/g, '').length === 0) {
+            // ...return all rows
+            var length = allRows === null ? 0 : allRows.length;
+            gtInfo.recordsAfterSearch = length;
+            return allRows;
+        }
+        var searchFunction = {};
+        var fieldsTemp = [];
+        for (var k = 0; k < fields.length; k++) {
+            var field = fields[k];
+            // check if field should be included in global search
+            var include = this.getProperty(settings, field.objectKey).search === false ? false : true;
+            // if include...
+            if (include) {
+                // ...and if search function is defined...
+                if (typeof field.search === 'function') {
+                    // ...add it as search function for field
+                    searchFunction[field.objectKey] = field.search;
+                }
+                else if (typeof field.value === 'function') {
+                    // ...add it as search function for field
+                    searchFunction[field.objectKey] = field.value;
+                }
+                // ...push it to our fields array
+                fieldsTemp.push(field);
+            }
+        }
+        var filteredRows = [];
+        searchTerms = typeof searchTerms === 'undefined' ? '' : searchTerms;
+        var searchTermsArray = searchTerms.toLowerCase().match(/(".*"|[^\s]+)/g);
+        for (var i = 0; i < allRows.length; i++) {
+            var row = allRows[i];
+            var string = '';
+            for (var j = 0; j < fieldsTemp.length; j++) {
+                var separator = j === 0 ? '' : ' & ';
+                string += searchFunction[fieldsTemp[j].objectKey] ? separator + searchFunction[fieldsTemp[j].objectKey](row, j) : separator + row[fieldsTemp[j].objectKey];
+            }
+            string = string.toLowerCase();
+            var match = true;
+            for (var k = 0; k < searchTermsArray.length; k++) {
+                var term = searchTermsArray[k].replace(/"/g, '');
+                match = string.indexOf(term) !== -1;
+                if (!match) {
+                    break;
+                }
+            }
+            if (match) {
+                filteredRows.push(row);
+            }
+        }
+        gtInfo.recordsAfterSearch = filteredRows.length;
+        //gtInfo.refresh(filteredRows.length,gt);
+        return filteredRows;
+    };
+    return GtSearchPipe;
+}());
+GtSearchPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtSearch'
+    })
+], GtSearchPipe);
+
+//# sourceMappingURL=gt-search.pipe.js.map
+
+/***/ }),
+
+/***/ 420:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtTotalsPositionPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtTotalsPositionPipe = (function () {
+    function GtTotalsPositionPipe() {
+    }
+    GtTotalsPositionPipe.prototype.transform = function (array, position) {
+        if (position === void 0) { position = 'header'; }
+        return array.filter(function (total) {
+            // if no position is defined assume position to be header
+            var totalPosition = total.position ? total.position : 'header';
+            return totalPosition === position;
+        });
+    };
+    return GtTotalsPositionPipe;
+}());
+GtTotalsPositionPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtTotalsPosition'
+    })
+], GtTotalsPositionPipe);
+
+//# sourceMappingURL=gt-totals-position.pipe.js.map
+
+/***/ }),
+
+/***/ 421:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtTotalsPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtTotalsPipe = (function () {
+    function GtTotalsPipe() {
+    }
+    GtTotalsPipe.prototype.transform = function (value, data, objectKey, refresh) {
+        var output;
+        if (data.length === 0) {
+            return;
+        }
+        if (typeof value === 'function') {
+            output = value(data, objectKey);
+        }
+        else if (value) {
+            output = value;
+        }
+        else {
+            output = '';
+        }
+        return output;
+    };
+    return GtTotalsPipe;
+}());
+GtTotalsPipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtTotals'
+    })
+], GtTotalsPipe);
+
+//# sourceMappingURL=gt-totals.pipe.js.map
+
+/***/ }),
+
+/***/ 422:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GtVisiblePipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var GtVisiblePipe = (function () {
+    function GtVisiblePipe() {
+        // TODO: move to helper functions
+        /** Sort by column order */
+        this.getColumnOrder = function (a, b) {
+            if (a.columnOrder < b.columnOrder)
+                return -1;
+            if (a.columnOrder > b.columnOrder || typeof a.columnOrder === 'undefined')
+                return 1;
+            return 0;
+        };
+    }
+    GtVisiblePipe.prototype.transform = function (array, settings) {
+        var visibleColumns = settings.sort(this.getColumnOrder).map(function (setting) {
+            if (setting.visible !== false && setting.enabled !== false) {
+                return setting.objectKey;
+            }
+        });
+        return array.filter(function (column) {
+            return visibleColumns.indexOf(column.objectKey) !== -1;
+        }).sort(function (a, b) {
+            return visibleColumns.indexOf(a.objectKey) < visibleColumns.indexOf(b.objectKey) ? -1 : 1;
+        });
+    };
+    return GtVisiblePipe;
+}());
+GtVisiblePipe = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+        name: 'gtVisible'
+    })
+], GtVisiblePipe);
+
+//# sourceMappingURL=gt-visible.pipe.js.map
+
+/***/ }),
+
+/***/ 423:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lazy_lazy_component__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rest_rest_component__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__basic_basic_component__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__custom_column_custom_column_component__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__localization_localization_component__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__change_column_settings_change_column_settings_component__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__home_home_component__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__inline_editing_inline_editing_component__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__column_click_column_click_component__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__aggregate_aggregate_component__ = __webpack_require__(329);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+var routes = [
+    { path: '', redirectTo: '/start', pathMatch: 'full' },
+    { path: 'start', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */] },
+    { path: 'lazy', component: __WEBPACK_IMPORTED_MODULE_2__lazy_lazy_component__["a" /* LazyComponent */] },
+    { path: 'advanced', component: __WEBPACK_IMPORTED_MODULE_3__rest_rest_component__["a" /* RestComponent */] },
+    { path: 'basic', component: __WEBPACK_IMPORTED_MODULE_4__basic_basic_component__["a" /* BasicComponent */] },
+    { path: 'totals', component: __WEBPACK_IMPORTED_MODULE_11__aggregate_aggregate_component__["a" /* AggregateComponent */] },
+    { path: 'custom-column', component: __WEBPACK_IMPORTED_MODULE_5__custom_column_custom_column_component__["a" /* CustomColumnComponent */] },
+    { path: 'column-click', component: __WEBPACK_IMPORTED_MODULE_10__column_click_column_click_component__["a" /* ColumnClickComponent */] },
+    { path: 'localization', component: __WEBPACK_IMPORTED_MODULE_6__localization_localization_component__["a" /* LocalizationComponent */] },
+    { path: 'inline-editing', component: __WEBPACK_IMPORTED_MODULE_9__inline_editing_inline_editing_component__["a" /* InlineEditingComponent */] },
+    { path: 'column-settings-component', component: __WEBPACK_IMPORTED_MODULE_7__change_column_settings_change_column_settings_component__["a" /* ChangeColumnSettingsComponent */] },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_8__home_home_component__["a" /* HomeComponent */] }
+];
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
+    }
+    return AppRoutingModule;
+}());
+AppRoutingModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+    })
+], AppRoutingModule);
+
+//# sourceMappingURL=app-routing.module.js.map
+
+/***/ }),
+
+/***/ 424:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var AppComponent = (function () {
+    function AppComponent() {
+        this.showMenu = false;
+    }
+    return AppComponent;
+}());
+AppComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-root',
+        template: __webpack_require__(449)
+    })
+], AppComponent);
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 425:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(131);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(424);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lazy_lazy_component__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rest_rest_component__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__custom_row_custom_row_component__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__basic_basic_component__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__examples_examples_component__ = __webpack_require__(426);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_routing_module__ = __webpack_require__(423);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angular_exemplify__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angular_exemplify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_angular_exemplify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__localization_localization_component__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ngx_translate_core__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ngx_translate_http_loader__ = __webpack_require__(429);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_generic_table_core__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_generic_table_column_settings__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__change_column_settings_change_column_settings_component__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__home_home_component__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__menu_menu_component__ = __webpack_require__(427);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__inline_editing_inline_editing_component__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__column_click_column_click_component__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__aggregate_aggregate_component__ = __webpack_require__(329);
+/* unused harmony export createTranslateLoader */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+/** Components used in example */
+
+
+
+
+
+
+
+
+
+
+/** Only needed when using ng2-translate */
+
+
+function createTranslateLoader(http) {
+    return new __WEBPACK_IMPORTED_MODULE_15__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
+}
+/** Import generic table module */
+
+
+/** Example components */
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__lazy_lazy_component__["a" /* LazyComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__rest_rest_component__["a" /* RestComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__custom_row_custom_row_component__["a" /* CustomRowComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["a" /* CustomColumnComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["b" /* NameComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["c" /* AgeComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__basic_basic_component__["a" /* BasicComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__examples_examples_component__["a" /* ExamplesComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__localization_localization_component__["a" /* LocalizationComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__change_column_settings_change_column_settings_component__["a" /* ChangeColumnSettingsComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__home_home_component__["a" /* HomeComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__menu_menu_component__["a" /* MenuComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__inline_editing_inline_editing_component__["a" /* InlineEditingComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__column_click_column_click_component__["a" /* ColumnClickComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__aggregate_aggregate_component__["a" /* AggregateComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
+            __WEBPACK_IMPORTED_MODULE_16__angular_generic_table_core__["a" /* GenericTableModule */],
+            __WEBPACK_IMPORTED_MODULE_17__angular_generic_table_column_settings__["a" /* ColumnSettingsModule */],
+            __WEBPACK_IMPORTED_MODULE_10__app_routing_module__["a" /* AppRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_11_angular_exemplify__["ExemplifyModule"],
+            /** translate module only needed for localization when using ngx */
+            __WEBPACK_IMPORTED_MODULE_14__ngx_translate_core__["a" /* TranslateModule */].forRoot({
+                loader: {
+                    provide: __WEBPACK_IMPORTED_MODULE_14__ngx_translate_core__["b" /* TranslateLoader */],
+                    useFactory: (createTranslateLoader),
+                    deps: [__WEBPACK_IMPORTED_MODULE_3__angular_http__["Http"]]
+                }
+            })
+        ],
+        /** add components used by your table i.e. for expanding rows etc. as entry components */
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_7__custom_row_custom_row_component__["a" /* CustomRowComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["b" /* NameComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__custom_column_custom_column_component__["c" /* AgeComponent */]
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+    })
+], AppModule);
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 426:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExamplesComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ExamplesComponent = (function () {
+    function ExamplesComponent() {
+    }
+    ExamplesComponent.prototype.ngOnInit = function () {
+    };
+    return ExamplesComponent;
+}());
+ExamplesComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-examples',
+        template: __webpack_require__(455),
+    }),
+    __metadata("design:paramtypes", [])
+], ExamplesComponent);
+
+//# sourceMappingURL=examples.component.js.map
+
+/***/ }),
+
+/***/ 427:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MenuComponent = (function () {
+    function MenuComponent() {
+    }
+    MenuComponent.prototype.ngOnInit = function () {
+    };
+    return MenuComponent;
+}());
+MenuComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'menu',
+        template: __webpack_require__(460),
+        styles: [__webpack_require__(445)]
+    }),
+    __metadata("design:paramtypes", [])
+], MenuComponent);
+
+//# sourceMappingURL=menu.component.js.map
+
+/***/ }),
+
+/***/ 428:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5627,95 +6285,202 @@ var environment = {
 
 /***/ }),
 
-/***/ "../../../../../src/main.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__("../../../../../src/polyfills.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
-
-
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["enableProdMode"])();
-}
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_4__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/polyfills.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__("../../../../core-js/es6/symbol.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__("../../../../core-js/es6/object.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__("../../../../core-js/es6/function.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__("../../../../core-js/es6/parse-int.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__("../../../../core-js/es6/parse-float.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__("../../../../core-js/es6/number.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__("../../../../core-js/es6/math.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__("../../../../core-js/es6/string.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__("../../../../core-js/es6/date.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__("../../../../core-js/es6/array.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__("../../../../core-js/es6/regexp.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__("../../../../core-js/es6/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__("../../../../core-js/es6/set.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__("../../../../core-js/es6/reflect.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__("../../../../core-js/es7/reflect.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__("../../../../zone.js/dist/zone.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
-// This file includes polyfills needed by Angular and is loaded before
-// the app. You can add your own extra polyfills to this file.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//# sourceMappingURL=polyfills.js.map
-
-/***/ }),
-
-/***/ 1:
+/***/ 444:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("../../../../../src/main.ts");
+exports = module.exports = __webpack_require__(84)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 445:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(84)(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ 448:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Totals</h2>\n<p>Add totals like sum, average etc. to your table using <code>gt-totals</code> option. Position either at the top, in the table header or at the bottom in the table footer or why not both as in the example below? Write your own functions for calculating values or pass static data (useful when lazy loading data).</p>\n<p>Add how many \"rows\" as you like and enable/disable auto update per row when searching or filtering the table, try searching the table below and you'll see that the total in the bottom won't update as it's been disabled (enabled by default). Works with inline editing too, try updating the number of meetings to see it in action.</p>\n<p>Apply your custom style using <code>.gt-totals</code> class or use the one provided by generic table (shown below). See docs for more info!</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"basicExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','#myTable']\" [source]=\"'child'\" [target]=\"basicExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'aggregate.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/aggregate/aggregate.component.ts'\n  }]\">\n    <form class=\"form form-inline mb-4\">\n      <label for=\"search\" class=\"form-control-label mr-sm-2\">Search</label>\n    <input name=\"search\" id=\"search\" class=\"form-control form-control-sm mb-2 mr-sm-2 mb-lg-0\" #search (keyup)=\"myTable.gtSearch(search.value)\" placeholder=\"Search\"/>\n    </form>\n    <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtTotals]=\"configObject.totals\" [gtData]=\"configObject.data\"></generic-table>\n    <small class=\"text-muted\">* Based on total entries before filter and or search has been applied.</small>\n    <div class=\"text-center mt-3\">\n      <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\n      <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n    </div>\n  </div>\n  <div class=\"card-footer\" #basicExample></div>\n</div>\n"
+
+/***/ }),
+
+/***/ 449:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"hidden-md-up fixed-top container-fluid mobile-menu px-3 py-2\">\n    <div class=\"menu-icon float-right\" [ngClass]=\"{'active':showMenu}\" (click)=\"showMenu = !showMenu\"><div></div></div>\n    <menu *ngIf=\"showMenu\" class=\"mt-4 p-0 text-white\"></menu>\n</div>\n<div class=\"jumbotron mt-4 mt-md-0 bg-teal text-white rounded-0\">\n    <div class=\"row no-gutters\">\n        <div class=\"col main\">\n            <div class=\"container\">\n                <h1 class=\"display-4\">Angular Generic Table</h1>\n                <p class=\"lead\">A table component for Angular 2+. For more info checkout the docs in the wiki.</p>\n                <a class=\"btn btn-primary\" href=\"https://github.com/hjalmers/angular-generic-table/wiki\" target=\"_blank\">Go to wiki</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row no-gutters\">\n    <div class=\"col main\">\n        <div class=\"container\">\n            <router-outlet></router-outlet>\n        </div>\n    </div>\n    <div class=\"col col-auto side hidden-sm-down\">\n        <menu class=\"p-0\"></menu>\n    </div>\n</div>\n\n\n"
+
+/***/ }),
+
+/***/ 450:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Basic</h2>\n<p>Table with static data and simple pagination.</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"basicExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','#myTable']\" [source]=\"'child'\" [target]=\"basicExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'basic.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/basic/basic.component.ts'\n  }]\">\n    <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\"></generic-table>\n    <div class=\"text-center\">\n      <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\n      <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n    </div>\n  </div>\n  <div class=\"card-footer\" #basicExample></div>\n</div>\n"
+
+/***/ }),
+
+/***/ 451:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Column settings component</h2>\n<p class=\"lead\">Toggle column visibility and column order using the <code>ColumnSettingsComponent</code>.</p>\n<h5>Installation</h5>\n<p>Install with npm by running:</p>\n<code>npm install @angular-generic-table/column-settings dragula ng2-dragula --save</code>\n<p class=\"mt-4\">More info available in the <a href=\"https://github.com/hjalmers/angular-generic-table/wiki/Installation-and-basic-usage\" target=\"_blank\">wiki</a>.</p>\n\n<h5>Usage</h5>\n<p>This how the <code>ColumnSettingsComponent</code> looks and behaves by default but feel free to customize it using css or by passing predefined classes. You can also define your own template for the columns.</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"columnSettingsExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','#myTable','#columnSettings']\" [source]=\"'child'\" [target]=\"columnSettingsExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'change-column-settings.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/change-column-settings/change-column-settings.component.ts'\n  }]\">\n    <button class=\"btn-link\" (click)=\"columnSettings.toggleColumnSettings()\"> {{columnSettings.active ? 'Hide column settings':'Show column settings'}}</button>\n    <gt-column-settings [genericTable]=\"myTable\" #columnSettings>\n      <div class=\"table-responsive\">\n        <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"firstConfigObject.settings\" [gtFields]=\"firstConfigObject.fields\" [gtData]=\"firstConfigObject.data\" [gtOptions]=\"{numberOfRows:5}\"></generic-table>\n      </div>\n      <div class=\"text-center\">\n        <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n      </div>\n    </gt-column-settings>\n\n  </div>\n  <div class=\"card-footer\" #columnSettingsExample></div>\n</div>\n\n<h5>Customize</h5>\n<p>Pass your own template for columns and change texts and css/classes for a custom look and feel.</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"columnSettingsTemplateExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','gtColumnItem','#myCustomTable','[ngClass]','#customColumnSettings','gtTexts','gtHeaderClasses','gtWrapperClasses']\" [source]=\"'child'\" [target]=\"columnSettingsTemplateExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'change-column-settings.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/change-column-settings/change-column-settings.component.ts'\n  }]\">\n    <ng-template #gtColumnItem let-column let-index=\"index\" let-name=\"name\">\n      <div class=\"btn-group mb-1 col-12 p-0\" role=\"group\">\n        <button type=\"button\" class=\"btn btn-sm w-100\" [ngClass]=\"{'btn-success':column.visible !== false, 'btn-danger':column.visible === false}\" style=\"cursor: move;\">{{index}}: {{name}}</button>\n        <button type=\"button\" class=\"btn btn-secondary btn-sm w-100\"  (click)=\"customColumnSettings.toggleColumnVisibility(column)\" style=\"cursor: pointer;\">{{column.visible !== false ? 'visible':'hidden'}}</button>\n      </div>\n    </ng-template>\n    <button class=\"btn-link\" (click)=\"customColumnSettings.toggleColumnSettings()\"> {{customColumnSettings.active ? 'Hide column settings':'Show column settings'}}</button>\n    <gt-column-settings [genericTable]=\"myCustomTable\" #customColumnSettings [gtColumnItem]=\"gtColumnItem\" [gtTexts]=\"{help:'Click to toggle column visibility, drag to reorder.'}\" [gtHeaderClasses]=\"'px-3 pt-3 pb-2 bg-faded'\" [gtWrapperClasses]=\"'px-3 pb-2 bg-faded h-50'\">\n      <div class=\"table-responsive\">\n        <generic-table [gtClasses]=\"'table-hover'\" #myCustomTable [gtSettings]=\"secondConfigObject.settings\" [gtFields]=\"secondConfigObject.fields\" [gtData]=\"secondConfigObject.data\"></generic-table>\n      </div>\n      <div class=\"text-center\">\n        <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myCustomTable\"></gt-pagination>\n      </div>\n    </gt-column-settings>\n  </div>\n  <div class=\"card-footer\" #columnSettingsTemplateExample></div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ 452:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Column click</h2>\n<p>This examples uses column click function to re-order rows, but you could call any function you like and apply your own style if you want something else than a regular button.</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"columnClickExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','#myTable','ngModel','[ngClass]','#columnSettings','gtEvent']\" [source]=\"'child'\" [target]=\"columnClickExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'rest.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/column-click/column-click.component.ts'\n  }]\">\n    <div class=\"table-responsive\">\n      <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\"></generic-table>\n    </div>\n    <div class=\"text-center\">\n      <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n    </div>\n  </div>\n  <div class=\"card-footer\" #columnClickExample>\n  </div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ 453:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Custom columns</h2>\n<p>Table using two custom column widgets, as well as external state tracking.</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"customColumnsExample\" [context]=\"this\"\n       [escapeStrings]=\"['gtSettings','gtFields','gtData','gtClasses']\"\n       [source]=\"'child'\" [target]=\"customColumnsExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name: 'app.module.ts',\n    src: 'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },\n  {\n    name: 'custom-column.component.ts',\n    src: 'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/custom-column/custom-column.component.ts'\n  }]\">\n    <generic-table [gtSettings]=\"gtConfig.settings\"\n                   [gtFields]=\"gtConfig.fields\"\n                   [gtData]=\"gtConfig.data\"\n                   [gtClasses]=\"'table-sm'\"></generic-table>\n    <button type=\"button\" class=\"btn btn-primary btn-sm float-right\" (click)=\"saveAll()\">Save All</button>\n  </div>\n  <div class=\"card-footer\" #customColumnsExample></div>\n</div>\n"
+
+/***/ }),
+
+/***/ 454:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n<div class=\"col-sm-12\">\n  <div class=\"row\">\n    <h4 class=\"col-10\">My custom row component</h4>\n    <div class=\"col-2 text-sm-right\">\n      <i class=\"fa fa-close fa-lg\" (click)=\"$hide()\" aria-hidden=\"true\"></i>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"form-group col-sm-3\">\n      <label class=\"control-label\">First name</label>\n      <div class=\"form-control-static\">{{row.first_name}}</div>\n    </div>\n    <div class=\"form-group col-sm-3\">\n      <label class=\"control-label\">Last name</label>\n      <div class=\"form-control-static\">{{row.last_name}}</div>\n    </div>\n    <div class=\"form-group col-sm-3\">\n      <label class=\"control-label\">Favorite color</label>\n      <div class=\"form-control-static\">{{row.favorite_color}}</div>\n    </div>\n    <div class=\"form-group col-sm-3\">\n      <div style=\"border-radius: 50%;width: 55px;height: 55px;display: inline-block;vertical-align: middle;\" [style.background]=\"row.favorite_color\"></div>\n    </div>\n  </div>\n  <button class=\"btn btn-primary btn btn-primary col-12 col-sm-auto float-right\" (click)=\"newRandomColor();\">New random color</button>\n</div>\n</div>\n"
+
+/***/ }),
+
+/***/ 455:
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container mt-4\">\n  <h1>Angular Generic Table Demo</h1>\n  <p>Angular Generic Table is a generic table component for Angular. It uses standard markup for tables ie. table, tr and td elements etc. and has support for expanding rows, global search, filters, sorting on multiple columns, pagination, export to CSV, column clicks, row selection, custom column rendering, custom export values, responsive layout etc. See <a href=\"https://github.com/hjalmers/angular-generic-table\" target=\"_blank\">docs</a> for more info.</p>\n  <h3>Examples</h3>\n  <ul class=\"nav flex-column mb-5\">\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"examples#basic\">Basic static example</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"examples#rest\">Fetch data using REST</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"examples#localization\">Localization</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"examples#custom\">Custom component inside table cell</a>\n    </li>\n    <li class=\"nav-item\">\n      <a class=\"nav-link\" href=\"examples#lazy\">Lazy loading</a>\n    </li>\n  </ul>\n  <app-basic></app-basic>\n  <app-rest></app-rest>\n  <app-localization></app-localization>\n  <app-custom-column></app-custom-column>\n  <app-lazy></app-lazy>\n</div>\n"
+
+/***/ }),
+
+/***/ 456:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Getting started</h2>\n<p class=\"lead\">Angular Generic Table is a generic table component for Angular. It uses standard markup for tables ie. table, tr and td elements etc. and has support for expanding rows, row selection, global search, filters, sorting on multiple columns, pagination, export to CSV, column clicks, custom column rendering, custom export values, responsive layout etc.</p>\n<h5>Installation and usage</h5>\n<p>Install with npm by running:</p>\n<code>npm install @angular-generic-table/core --save</code>\n<p class=\"mt-4\">More info available in the <a href=\"https://github.com/hjalmers/angular-generic-table/wiki/Installation-and-usage\" target=\"_blank\">wiki</a>, feel free to look at the <a routerLink=\"/basic\">basic setup</a> too:)</p>\n<h5 class=\"mt-4\">Configuration and options</h5>\n<p>Check out the <a href=\"https://github.com/hjalmers/angular-generic-table/wiki\" target=\"_blank\">wiki articles</a> for more info.</p>\n\n"
+
+/***/ }),
+
+/***/ 457:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Inline editing</h2>\n<p>Table with simple inline editing. Edit cells using input field or select a value from a dropdown.</p>\n<div class=\"alert alert-info\">Please note that this example only persists changes in memory so the data will be reset when component is reinitialized e.g when route changes or page is refreshed.</div>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"inlineEditExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','#myTable']\" [source]=\"'child'\" [target]=\"inlineEditExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'inline-editing.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/inline-editing/inline-editing.component.ts'\n  }]\">\n    <div class=\"table-responsive\">\n      <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\" (gtEvent)=\"trigger($event)\"></generic-table>\n    </div>\n    <div class=\"text-center\">\n      <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\n      <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n    </div>\n    <div class=\"alert alert-info\" *ngIf=\"updatedRow\">\n      <div><strong>From:</strong> {{updatedRow?.oldValue | json}}</div>\n      <div><strong>To:</strong> {{updatedRow?.newValue | json}}</div>\n      <div><strong>Original:</strong> {{updatedRow?.originalValue | json}}</div>\n    </div>\n\n  </div>\n  <div class=\"card-footer\" #inlineEditExample></div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ 458:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Lazy loading</h2>\n<p>Use lazy loading to speed things up when working with large data sets and cache data in the table if you want to avoid unnecessary server requests. This example also utilizes column stacking on tablets and mobile devices so resize the browser and see what happens with the layout on smaller screens.</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"lazyExample\" [context]=\"this\" [escapeStrings]=\"escape\" [source]=\"'child'\" [target]=\"lazyExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'lazy.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/lazy/lazy.component.ts'\n  }]\">\n    <form class=\"form form-inline mb-4\">\n      <label for=\"highlight_input\" class=\"form-control-label mr-sm-2\">Search</label>\n      <input id=\"highlight_input\" class=\"form-control form-control-sm mb-2 mr-sm-2 mb-sm-0\" value=\"al\" disabled placeholder=\"Search\"/>\n      <label class=\"form-control-label mr-sm-2\">Visible columns:</label>\n      <div class=\"form-check form-check-inline ml-0 mr-sm-2\" *ngFor=\"let column of configObject.settings\">\n        <label class=\"form-check-label\">\n          <input type=\"checkbox\" name=\"{{column.objectKey}}\" class=\"form-check-input\" [(ngModel)]=\"column.visible\" (change)=\"myTable.redraw()\">\n          {{configObject.fields | gtProperty:column.objectKey:'name'}}\n        </label>\n      </div>\n      <small class=\"form-text text-muted\"><gt-table-info [genericTable]=\"myTable\"></gt-table-info></small>\n      <small class=\"form-text text-muted mb-2\">\n        Please note that the mock service currently doesn't support search, this is why this example has a fixed search string (just to show the highlight feature together with lazy load). Do the search server-side and return search terms in your response. Separate multiple search terms with a space [ ] or match whole phrase by putting them within quotes [\"].\n      </small>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.selectAllRows()\">Select all</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.deselectAllRows()\">Deselect all</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.expandAllRows()\">Expand all</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.collapseAllRows()\">Collapse all</button>\n    </form>\n    <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [(gtData)]=\"configObject.data\" [gtInfo]=\"configObject.info\" [gtRowComponent]=\"expandedRow\" (gtEvent)=\"trigger($event)\" [gtOptions]=\"{stack:true, highlightSearch:true, lazyLoad:true, rowSelection:true}\"></generic-table>\n    <div class=\"text-center\">\n      <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n    </div>\n  </div>\n  <div class=\"card-footer\" #lazyExample>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 459:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>{{ 'TRANSLATIONS.TITLE' | translate }}</h2>\n<p [innerHTML]=\"'TRANSLATIONS.DESCRIPTION' | translate\"></p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">{{'TRANSLATIONS.EXAMPLE' | translate}}</div>\n  <div class=\"card-block\" exemplify=\"localizationExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','[gtTexts]','#langSelect','#myTable']\" [source]=\"'child'\" [target]=\"translationsExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'localization.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/localization/localization.component.ts'\n  }]\">\n    <form class=\"form form-inline mb-4\">\n      <label for=\"language\" class=\"form-control-label mr-sm-2\">{{ 'TRANSLATIONS.SELECT' | translate }}</label>\n      <select id=\"language\" class=\"form-control form-control-sm mb-2 mr-sm-2 mb-lg-0\" #langSelect (change)=\"translate.use(langSelect.value)\">\n        <option *ngFor=\"let lang of translate.getLangs()\" [value]=\"lang\" [selected]=\"lang === translate.currentLang\">{{ lang }}</option>\n      </select>\n    </form>\n    <ng-template [ngIf]=\"configObject\">\n      <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtTexts]=\"translations\" [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\"></generic-table>\n      <div class=\"text-center\">\n        <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\n        <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n      </div>\n    </ng-template>\n  </div>\n  <div class=\"card-footer\" #translationsExample></div>\n</div>\n"
+
+/***/ }),
+
+/***/ 460:
+/***/ (function(module, exports) {
+
+module.exports = "<h5>Angular generic table</h5>\n<ul class=\"navbar-nav mb-4\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/start\" routerLinkActive=\"active\">Getting started</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" href=\"https://github.com/hjalmers/angular-generic-table/releases\" target=\"_blank\">Release notes</a>\n  </li>\n</ul>\n<h5>Core</h5>\n<ul class=\"navbar-nav mb-4\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/basic\" routerLinkActive=\"active\">Basic example</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/advanced\" routerLinkActive=\"active\">Advanced example</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/column-click\" routerLinkActive=\"active\">Column click example</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/totals\" routerLinkActive=\"active\">Totals example</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/localization\" routerLinkActive=\"active\">Localization</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/lazy\" routerLinkActive=\"active\">Lazy loading</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/inline-editing\" routerLinkActive=\"active\">Inline editing</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/custom-column\" routerLinkActive=\"active\">Custom component inside table cell</a>\n  </li>\n</ul>\n<h5>Column settings</h5>\n<ul class=\"navbar-nav\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/column-settings-component\" routerLinkActive=\"active\">Column settings component</a>\n  </li>\n</ul>\n"
+
+/***/ }),
+
+/***/ 461:
+/***/ (function(module, exports) {
+
+module.exports = "<h2>Advanced</h2>\n<p>Fetch data using REST-service, expand rows and display a custom component, use custom functions for rendering, sorting and exporting. Apply predefined filter and simple function for adding new random data to table. To control columns we use the <code><a routerLink=\"/column-settings-component\">ColumnSettingsComponent</a></code>. This example also utilizes column stacking on tablets and mobile devices so resize the browser and see what happens with the layout on smaller screens.</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-block\" exemplify=\"restExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','gtData','[gtRowComponent]','[gtOptions]','[genericTable]','#rowLength','#myTable','ngModel','[ngClass]','#columnSettings','gtEvent']\" [source]=\"'child'\" [target]=\"restExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'rest.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/rest/rest.component.ts'\n  }]\">\n    <form class=\"form form-inline mb-4\">\n      <label for=\"rows\" class=\"form-control-label mr-sm-2\">Rows</label>\n      <select id=\"rows\" class=\"form-control form-control-sm mb-2 mr-sm-2 mb-lg-0\" #rowLength (change)=\"myTable.changeRowLength(rowLength.value)\">\n        <option value=10>10</option>\n        <option value=25>25</option>\n        <option value=50>50</option>\n        <option value=100>100</option>\n      </select>\n      <input class=\"form-control form-control-sm mb-2 mr-sm-2 mb-lg-0\" #search (keyup)=\"myTable.gtSearch(search.value)\" placeholder=\"Search\"/>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"applyFilter();\">Apply predefined filter</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.gtClearFilter()\">Remove filter</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"addData()\">Add data</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"showColumnControls = !showColumnControls\">Toggle columns</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.exportCSV()\">Export to CSV</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.selectAllRows()\">Select all</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.deselectAllRows()\">Deselect all</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.expandAllRows()\">Expand all</button>\n      <button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"myTable.collapseAllRows()\">Collapse all</button>\n      <!--<button class=\"btn btn-secondary btn-sm col-12 col-sm-auto mb-2 mr-sm-2 mb-lg-0\" (click)=\"getData()\">Refresh data</button>-->\n      <small class=\"form-text text-muted col-12 col-xl-auto mb-2 mt-lg-2 my-xl-auto row\"><gt-table-info [genericTable]=\"myTable\"></gt-table-info> Number of selected rows: {{selectedRows}}</small>\n      <div *ngIf=\"showColumnControls\" class=\"col-12 row mt-xl-2\">\n        <label class=\"form-control-label mr-sm-2\">Visible columns:</label>\n        <div class=\"form-check form-check-inline ml-0 ml-sm-2\" *ngFor=\"let column of configObject.settings\">\n          <label class=\"form-check-label\">\n            <input type=\"checkbox\" name=\"{{column.objectKey}}\" class=\"form-check-input\" [(ngModel)]=\"column.visible\" (change)=\"myTable.redraw()\">\n            {{configObject.fields | gtProperty:column.objectKey:'name'}}\n          </label>\n        </div>\n      </div>\n    </form>\n    <button class=\"btn-link\" (click)=\"columnSettings.toggleColumnSettings()\"> {{columnSettings.active ? 'Hide column settings':'Show column settings'}}</button>\n    <gt-column-settings [genericTable]=\"myTable\" #columnSettings>\n      <div class=\"table-responsive\">\n        <generic-table [gtClasses]=\"'table-hover'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [gtData]=\"configObject.data\" [gtRowComponent]=\"expandedRow\" [gtOptions]=\"{stack:true, highlightSearch:true, rowSelection:true}\" (gtEvent)=\"trigger($event)\"></generic-table>\n      </div>\n      <div class=\"text-center\">\n        <gt-pagination [gtClasses]=\"'justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n      </div>\n    </gt-column-settings>\n  </div>\n  <div class=\"card-footer\" #restExample>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 63:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_gt_expanding_row_component__ = __webpack_require__(323);
+/* unused harmony reexport GtExpandingRowComponent */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__components_gt_expanding_row_component__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_generic_table_component__ = __webpack_require__(132);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__components_generic_table_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_gt_table_info_component__ = __webpack_require__(325);
+/* unused harmony reexport GtTableInfoComponent */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_gt_pagination_component__ = __webpack_require__(324);
+/* unused harmony reexport GtPaginationComponent */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__core_module__ = __webpack_require__(406);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__core_module__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__interfaces_gt_config__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__interfaces_gt_config___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__interfaces_gt_config__);
+/* unused harmony reexport GtConfig */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__interfaces_gt_config_field__ = __webpack_require__(408);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__interfaces_gt_config_field___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__interfaces_gt_config_field__);
+/* unused harmony reexport GtConfigField */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__interfaces_gt_config_setting__ = __webpack_require__(409);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__interfaces_gt_config_setting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__interfaces_gt_config_setting__);
+/* unused harmony reexport GtConfigSetting */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__interfaces_gt_information__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__interfaces_gt_information___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__interfaces_gt_information__);
+/* unused harmony reexport GtInformation */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__interfaces_gt_row__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__interfaces_gt_row___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__interfaces_gt_row__);
+/* unused harmony reexport GtRow */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__interfaces_gt_texts__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__interfaces_gt_texts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__interfaces_gt_texts__);
+/* unused harmony reexport GtTexts */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__interfaces_gt_options__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__interfaces_gt_options___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__interfaces_gt_options__);
+/* unused harmony reexport GtOptions */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_gt_custom_component_factory__ = __webpack_require__(147);
+/* unused harmony reexport GtCustomComponent */
+
+
+
+
+
+
+
+
+
+
+
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 717:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(393);
 
 
 /***/ })
 
-},[1]);
+},[717]);
 //# sourceMappingURL=main.bundle.js.map
