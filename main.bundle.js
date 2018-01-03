@@ -10545,7 +10545,7 @@ var _a, _b;
 /***/ "../../../../../src/app/row-selection/row-selection.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2>Row selection</h2>\n<p>Enable row selection by passing <code>rowSelection:true</code> with <code>gtOptions</code>. By default you'll be able to select multiple rows, disable by passing <code>rowSelectionAllowMultiple:false</code>. Use <code>rowSelectionInitialState</code> to set an initial state for rows, pass <code>true</code> to set all rows to selected when table is initiated. <code>rowSelectionInitialState</code> also supports passing a function to determine initial row state</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-body\" exemplify=\"basicExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','#myTable']\" [source]=\"'child'\" [target]=\"basicExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'row-selection.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/row-selection/row-selection.component.ts'\n  }]\">\n    <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [(gtData)]=\"configObject.data\" [gtOptions]=\"{rowSelection:true}\"></generic-table>\n    <div class=\"text-center\">\n      <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\n      <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n    </div>\n  </div>\n  <div class=\"card-footer\" #basicExample></div>\n</div>\n"
+module.exports = "<h2>Row selection</h2>\n<p>Enable row selection by passing <code>rowSelection:true</code> with <code>gtOptions</code>. By default you'll be able to select multiple rows, disable by passing <code>rowSelectionAllowMultiple:false</code>. Use <code>rowSelectionInitialState</code> to set an initial state for rows, pass <code>true</code> to set all rows to selected when table is initiated. <code>rowSelectionInitialState</code> also supports passing a function to determine initial row state</p>\n<div class=\"card mb-5\">\n  <div class=\"card-header\">Example</div>\n  <div class=\"card-body\" exemplify=\"basicExample\" [context]=\"this\" [escapeStrings]=\"['[gtClasses]','[gtSettings]','[gtFields]','[(gtData)]','[gtRowComponent]','[gtOptions]','[genericTable]','#myTable']\" [source]=\"'child'\" [target]=\"basicExample\" [navStyle]=\"'tabs'\" [externalSources]=\"[{\n    name:'app.module.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/app.module.ts'\n  },{\n    name:'row-selection.component.ts',\n    src:'https://raw.githubusercontent.com/hjalmers/angular2-generic-table/master/src/app/row-selection/row-selection.component.ts'\n  }]\">\n    <generic-table [gtClasses]=\"'table-sm'\" #myTable [gtSettings]=\"configObject.settings\" [gtFields]=\"configObject.fields\" [(gtData)]=\"configObject.data\" [gtOptions]=\"options\"></generic-table>\n    <div class=\"text-center\">\n      <small><gt-table-info class=\"form-text text-muted mb-2\" [genericTable]=\"myTable\"></gt-table-info></small>\n      <gt-pagination [gtClasses]=\"'pagination-sm justify-content-center'\" [genericTable]=\"myTable\"></gt-pagination>\n    </div>\n  </div>\n  <div class=\"card-footer\" #basicExample></div>\n</div>\n"
 
 /***/ }),
 
@@ -10569,6 +10569,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var RowSelectionComponent = (function () {
     function RowSelectionComponent() {
+        this.options = {
+            rowSelection: true,
+            rowSelectionInitialState: function (row) { return row.name === 'Ann'; } // set to true to select all rows
+        };
         this.configObject = {
             settings: [{
                     objectKey: 'id',
@@ -10999,12 +11003,7 @@ var RowSelectionComponent = (function () {
                 }]
         };
     }
-    RowSelectionComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        setTimeout(function () {
-            _this.myTable.toggleSelect(_this.configObject.data[1]);
-        }, 0);
-    };
+    RowSelectionComponent.prototype.ngOnInit = function () { };
     return RowSelectionComponent;
 }());
 __decorate([
